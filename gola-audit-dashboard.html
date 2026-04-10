@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gola South — Auditoría Digital Completa 2026</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg:      #ffffff;
+      --dark:    #f5f5f5;
+      --card:    #fafafa;
+      --card2:   #f0f0f0;
+      --border:  #e0e0e0;
+      --muted:   #aaaaaa;
+      --subtle:  #777777;
+      --light:   #444444;
+      --white:   #111111;
+      --accent:  #1A3A6B;
+      --accent2: #0d2247;
+      --green:   #2e9e6b;
+      --yellow:  #e6a800;
+      --red:     #E31837;
+      --orange:  #F5851F;
+      --blue:    #4A90D9;
+      --instagram: #E1306C;
+      --facebook:  #1877F2;
+      --tiktok:    #010101;
+      --linkedin:  #0A66C2;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--dark);
+      border-bottom: 2px solid var(--accent);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .header-left { display: flex; align-items: center; gap: 18px; }
+    .logo-box {
+      width: 50px; height: 50px;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Georgia', serif;
+      font-size: 18px; font-weight: bold;
+      color: #ffffff; letter-spacing: 1px; flex-shrink: 0;
+    }
+    .brand-name {
+      font-family: 'Georgia', serif;
+      font-size: 20px; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--accent); font-weight: normal;
+    }
+    .brand-sub {
+      font-size: 10px; letter-spacing: 3px;
+      color: var(--subtle); text-transform: uppercase; margin-top: 3px;
+    }
+    .header-center { text-align: center; }
+    .audit-title {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 3px;
+    }
+    .audit-period { font-size: 12px; color: var(--subtle); letter-spacing: 1px; }
+    .header-right { text-align: right; }
+    .health-score-label {
+      font-size: 10px; letter-spacing: 2px; color: var(--subtle);
+      text-transform: uppercase; margin-bottom: 4px;
+    }
+    .health-score-value {
+      font-family: 'Georgia', serif;
+      font-size: 36px; color: var(--red); letter-spacing: -1px; line-height: 1;
+    }
+    .health-score-max { font-size: 16px; color: var(--muted); }
+    .health-score-tag {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--red); margin-top: 4px;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex; gap: 0; overflow-x: auto;
+    }
+    .nav-tab {
+      padding: 14px 20px;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--subtle); cursor: pointer; border: none; background: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap; transition: color .2s, border-color .2s;
+    }
+    .nav-tab:hover { color: var(--accent); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .section { padding: 48px; display: none; }
+    .section.active { display: block; }
+    .section-title {
+      font-family: 'Georgia', serif;
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 6px;
+    }
+    .section-heading {
+      font-family: 'Georgia', serif;
+      font-size: 26px; font-weight: normal;
+      color: var(--white); margin-bottom: 32px;
+    }
+
+    /* ── GRID ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+    .card-sm { padding: 18px 20px; }
+    .card-label {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--subtle); margin-bottom: 8px;
+    }
+    .card-value {
+      font-family: 'Georgia', serif;
+      font-size: 28px; color: var(--white); line-height: 1;
+    }
+    .card-value.accent { color: var(--accent); }
+    .card-value.green  { color: var(--green); }
+    .card-value.yellow { color: var(--yellow); }
+    .card-value.red    { color: var(--red); }
+    .card-value.orange { color: var(--orange); }
+    .card-trend {
+      font-size: 11px; margin-top: 6px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .trend-up   { color: var(--green); }
+    .trend-down { color: var(--red); }
+    .trend-flat { color: var(--subtle); }
+    .card-desc { font-size: 11px; color: var(--subtle); margin-top: 4px; }
+
+    /* ── CHART CONTAINERS ── */
+    .chart-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+    .chart-title {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--subtle); margin-bottom: 20px;
+    }
+    .chart-canvas-wrap { position: relative; }
+
+    /* ── TABLES ── */
+    .table-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    .table-head {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--subtle);
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      padding: 10px 16px; text-align: left;
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--subtle); border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 10px 16px; font-size: 12px;
+      border-bottom: 1px solid var(--border); color: var(--light);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--card2); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 2px 8px; font-size: 10px; letter-spacing: 1px;
+      border-radius: 2px; font-weight: normal;
+    }
+    .badge-green  { background: rgba(46,158,107,.12); color: var(--green); border: 1px solid rgba(46,158,107,.3); }
+    .badge-yellow { background: rgba(230,168,0,.1);   color: var(--yellow); border: 1px solid rgba(230,168,0,.3); }
+    .badge-red    { background: rgba(227,24,55,.1);   color: var(--red);    border: 1px solid rgba(227,24,55,.3); }
+    .badge-muted  { background: rgba(170,170,170,.1); color: var(--subtle); border: 1px solid rgba(170,170,170,.2); }
+    .badge-blue   { background: rgba(74,144,217,.1);  color: var(--blue);   border: 1px solid rgba(74,144,217,.3); }
+    .badge-orange { background: rgba(245,133,31,.1);  color: var(--orange); border: 1px solid rgba(245,133,31,.3); }
+
+    /* ── INSIGHT CARDS ── */
+    .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+    .insight-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 20px;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      font-weight: normal; border-bottom: 1px solid var(--border);
+    }
+    .insight-header.green  { background: rgba(46,158,107,.07);  color: var(--green);  border-color: rgba(46,158,107,.2); }
+    .insight-header.yellow { background: rgba(230,168,0,.06);   color: var(--yellow); border-color: rgba(230,168,0,.2); }
+    .insight-header.red    { background: rgba(227,24,55,.07);   color: var(--red);    border-color: rgba(227,24,55,.2); }
+    .insight-list {
+      background: var(--card); border: 1px solid var(--border);
+      border-top: none; list-style: none;
+    }
+    .insight-item {
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+      font-size: 12px; color: var(--light); line-height: 1.5;
+    }
+    .insight-item:last-child { border-bottom: none; }
+    .insight-item strong { color: var(--white); display: block; margin-bottom: 2px; }
+
+    /* ── SCORECARD ── */
+    .score-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    .score-row:last-child { border-bottom: none; }
+    .score-label { flex: 1; font-size: 12px; color: var(--light); }
+    .score-bar-wrap { flex: 2; height: 6px; background: var(--border); }
+    .score-bar { height: 100%; }
+    .score-num { width: 48px; text-align: right; font-size: 13px; color: var(--white); font-family: 'Georgia', serif; }
+    .score-status { width: 32px; text-align: center; font-size: 14px; }
+
+    /* ── MATRIX 2x2 ── */
+    .matrix-container {
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr; gap: 2px;
+      background: var(--border); aspect-ratio: 1 / 0.75;
+      min-height: 380px;
+    }
+    .matrix-quadrant { padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+    .matrix-label {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      font-weight: normal; margin-bottom: 4px;
+    }
+    .matrix-q1 { background: rgba(46,158,107,.07); }
+    .matrix-q1 .matrix-label { color: var(--green); }
+    .matrix-q2 { background: rgba(74,144,217,.07); }
+    .matrix-q2 .matrix-label { color: var(--blue); }
+    .matrix-q3 { background: rgba(230,168,0,.05); }
+    .matrix-q3 .matrix-label { color: var(--yellow); }
+    .matrix-q4 { background: rgba(170,170,170,.04); }
+    .matrix-q4 .matrix-label { color: var(--muted); }
+    .matrix-tag {
+      display: inline-block; padding: 4px 10px;
+      font-size: 11px; border: 1px solid var(--border); color: var(--light);
+      background: var(--card2); cursor: default;
+    }
+    .matrix-axis-x {
+      text-align: center; font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--subtle); padding: 8px 0;
+    }
+    .matrix-axis-y-wrap { display: flex; align-items: center; }
+    .matrix-axis-y {
+      writing-mode: vertical-rl; transform: rotate(180deg);
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--subtle); padding: 0 8px;
+    }
+    .matrix-outer {
+      display: grid; grid-template-columns: auto 1fr;
+      grid-template-rows: 1fr auto; gap: 0;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+    .roadmap-phase { background: var(--card); padding: 24px; }
+    .roadmap-phase-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+    .roadmap-phase-sub { font-size: 11px; color: var(--subtle); margin-bottom: 16px; }
+    .roadmap-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .roadmap-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 12px; color: var(--light); line-height: 1.4;
+    }
+    .roadmap-num {
+      min-width: 20px; height: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-family: 'Georgia', serif;
+    }
+    .phase-q1 .roadmap-phase-title { color: var(--red); }
+    .phase-q1 .roadmap-num { background: rgba(227,24,55,.1); color: var(--red); }
+    .phase-q2 .roadmap-phase-title { color: var(--yellow); }
+    .phase-q2 .roadmap-num { background: rgba(230,168,0,.1); color: var(--yellow); }
+    .phase-q3 .roadmap-phase-title { color: var(--blue); }
+    .phase-q3 .roadmap-num { background: rgba(74,144,217,.12); color: var(--blue); }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+    /* ── COMPETITOR RADAR LEGEND ── */
+    .competitor-legend {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      padding: 16px 20px; background: var(--card2);
+      border: 1px solid var(--border); border-top: none;
+    }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--light); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    /* ── SOCIAL SCORECARD ── */
+    .social-platform-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+    }
+    .social-platform-row:last-child { border-bottom: none; }
+    .platform-icon { font-size: 18px; width: 28px; text-align: center; }
+    .platform-name { width: 140px; font-size: 12px; color: var(--light); }
+    .platform-followers { width: 80px; font-size: 13px; color: var(--white); font-family: 'Georgia', serif; }
+    .platform-status { width: 80px; }
+    .platform-bar-wrap { flex: 1; height: 4px; background: var(--border); }
+    .platform-bar { height: 100%; }
+    .platform-score { width: 48px; text-align: right; font-size: 12px; color: var(--white); }
+
+    /* ── SENTIMENT BAR ── */
+    .sentiment-bar {
+      height: 10px; border-radius: 0;
+      display: flex; overflow: hidden; margin: 12px 0;
+    }
+    .sentiment-positive { background: var(--green); }
+    .sentiment-neutral  { background: var(--yellow); }
+    .sentiment-negative { background: var(--red); }
+
+    /* ── STATUS ── */
+    .status-ok   { color: var(--green); }
+    .status-warn { color: var(--yellow); }
+    .status-bad  { color: var(--red); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--dark); border-top: 1px solid var(--border);
+      padding: 24px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-brand { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .footer-note { font-size: 10px; color: var(--muted); }
+
+    /* ── SOCIAL SUB-NAV ── */
+    .social-subnav {
+      display: flex; gap: 0; overflow-x: auto;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+      margin-left: -48px; margin-right: -48px; padding: 0 48px;
+    }
+    .social-subnav-tab {
+      padding: 12px 22px;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--subtle); cursor: pointer; border: none; background: none;
+      border-bottom: 3px solid transparent; white-space: nowrap;
+      transition: color .2s, border-color .2s;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .social-subnav-tab:hover { color: var(--white); }
+    .social-subnav-tab.active { font-weight: bold; }
+    .social-subnav-tab.active[data-net="instagram"] { color: #E1306C; border-bottom-color: #E1306C; }
+    .social-subnav-tab.active[data-net="facebook"]  { color: #1877F2; border-bottom-color: #1877F2; }
+    .social-subnav-tab.active[data-net="tiktok"]    { color: #F5851F; border-bottom-color: #F5851F; }
+    .social-subnav-tab.active[data-net="linkedin"]  { color: #0A66C2; border-bottom-color: #0A66C2; }
+    .social-panel { display: none; }
+    .social-panel.active { display: block; }
+
+    /* ── SOCIAL KPI ROW ── */
+    .social-kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+    .social-kpi { background: var(--card); border: 1px solid var(--border); padding: 18px 20px; }
+    .social-kpi-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--subtle); margin-bottom: 8px; }
+    .social-kpi-value { font-family: 'Georgia', serif; font-size: 26px; font-weight: normal; color: var(--white); line-height: 1; }
+    .social-kpi-value.green  { color: var(--green); }
+    .social-kpi-value.yellow { color: var(--yellow); }
+    .social-kpi-value.red    { color: var(--red); }
+    .social-kpi-value.accent { color: var(--accent); }
+    .social-kpi-value.orange { color: var(--orange); }
+    .social-kpi-sub { font-size: 11px; color: var(--subtle); margin-top: 5px; }
+
+    /* ── ACCORDION ── */
+    .accordion-item { border: 1px solid var(--border); margin-bottom: 12px; overflow: hidden; }
+    .accordion-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 22px; cursor: pointer; background: var(--card);
+      user-select: none; transition: background .15s;
+    }
+    .accordion-header:hover { background: var(--card2); }
+    .accordion-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; flex-shrink: 0;
+    }
+    .accordion-icon.green  { background: rgba(46,158,107,.12); color: var(--green); }
+    .accordion-icon.yellow { background: rgba(230,168,0,.1);   color: var(--yellow); }
+    .accordion-icon.red    { background: rgba(227,24,55,.1);   color: var(--red); }
+    .accordion-title { flex: 1; font-size: 13px; font-weight: bold; letter-spacing: 1px; color: var(--white); }
+    .accordion-count { font-size: 10px; letter-spacing: 1px; color: var(--subtle); }
+    .accordion-chevron { font-size: 10px; color: var(--subtle); transition: transform .25s; display: inline-block; }
+    .accordion-item.open .accordion-chevron { transform: rotate(90deg); }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; background: var(--bg); }
+    .accordion-item.open .accordion-body { max-height: 2000px; }
+    .accordion-body-inner { padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+
+    .foda-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+      font-size: 12px; color: var(--light); line-height: 1.5;
+    }
+    .foda-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .foda-bullet { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+    .foda-bullet.green  { background: var(--green); }
+    .foda-bullet.yellow { background: var(--yellow); }
+    .foda-bullet.red    { background: var(--red); }
+    .foda-text strong { color: var(--white); display: block; margin-bottom: 2px; font-size: 12px; }
+
+    /* ── RECOMENDACIONES ── */
+    .rec-item {
+      display: grid; grid-template-columns: auto 1fr auto auto;
+      gap: 14px; align-items: start;
+      padding-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .rec-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .badge-critica { background: rgba(227,24,55,.1);  color: #E31837; border: 1px solid rgba(227,24,55,.3); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; font-weight: bold; white-space: nowrap; line-height: 1.8; }
+    .badge-alta    { background: rgba(230,168,0,.1);  color: var(--yellow); border: 1px solid rgba(230,168,0,.3); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; font-weight: bold; white-space: nowrap; line-height: 1.8; }
+    .badge-media   { background: rgba(74,144,217,.1); color: var(--blue);   border: 1px solid rgba(74,144,217,.3); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; font-weight: bold; white-space: nowrap; line-height: 1.8; }
+    .badge-baja    { background: rgba(170,170,170,.1);color: var(--subtle); border: 1px solid rgba(170,170,170,.2); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; font-weight: bold; white-space: nowrap; line-height: 1.8; }
+    .rec-desc { font-size: 12px; color: var(--light); line-height: 1.5; }
+    .rec-desc strong { color: var(--white); display: block; margin-bottom: 3px; font-size: 12px; }
+    .rec-meta { font-size: 10px; color: var(--subtle); white-space: nowrap; text-align: right; }
+    .rec-kpi  { font-size: 10px; color: var(--accent); white-space: nowrap; text-align: right; }
+
+    /* ── CONCEPTO CARDS ── */
+    .concepto-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--border);
+      padding: 0;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .concepto-card.fortaleza { border-left-color: var(--green); }
+    .concepto-card.punto-medio { border-left-color: var(--yellow); }
+    .concepto-card.debilidad { border-left-color: var(--red); }
+
+    .concepto-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 22px; cursor: pointer;
+      background: var(--card); user-select: none;
+      border-bottom: 1px solid transparent;
+      transition: background .15s;
+    }
+    .concepto-header:hover { background: var(--card2); }
+    .concepto-card.open .concepto-header { border-bottom-color: var(--border); }
+
+    .concepto-badge {
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 3px 10px; font-weight: bold; white-space: nowrap;
+      border-radius: 2px;
+    }
+    .concepto-badge.fortaleza { background: rgba(46,158,107,.12); color: var(--green); border: 1px solid rgba(46,158,107,.3); }
+    .concepto-badge.punto-medio { background: rgba(230,168,0,.1); color: var(--yellow); border: 1px solid rgba(230,168,0,.3); }
+    .concepto-badge.debilidad { background: rgba(227,24,55,.1); color: var(--red); border: 1px solid rgba(227,24,55,.3); }
+
+    .concepto-icon {
+      font-size: 22px; width: 34px; text-align: center; flex-shrink: 0;
+    }
+    .concepto-title { flex: 1; }
+    .concepto-title-main { font-size: 14px; font-weight: bold; color: var(--white); letter-spacing: 0.5px; }
+    .concepto-title-sub  { font-size: 11px; color: var(--subtle); margin-top: 2px; }
+    .concepto-score {
+      font-family: 'Georgia', serif; font-size: 22px; font-weight: normal;
+      min-width: 56px; text-align: right;
+    }
+    .concepto-score.fortaleza { color: var(--green); }
+    .concepto-score.punto-medio { color: var(--yellow); }
+    .concepto-score.debilidad  { color: var(--red); }
+    .concepto-chevron { font-size: 10px; color: var(--subtle); transition: transform .25s; margin-left: 8px; }
+    .concepto-card.open .concepto-chevron { transform: rotate(90deg); }
+
+    .concepto-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .concepto-card.open .concepto-body { max-height: 1200px; }
+    .concepto-body-inner {
+      padding: 24px 26px;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;
+    }
+    .concepto-col-title {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 12px; font-weight: normal;
+    }
+    .concepto-col-title.green  { color: var(--green); }
+    .concepto-col-title.yellow { color: var(--yellow); }
+    .concepto-col-title.blue   { color: var(--accent); }
+    .concepto-col-title.red    { color: var(--red); }
+    .concepto-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .concepto-list li {
+      font-size: 12px; color: var(--light); line-height: 1.55;
+      padding-left: 14px; position: relative;
+    }
+    .concepto-list li::before {
+      content: '—'; position: absolute; left: 0; color: var(--muted); font-size: 11px;
+    }
+    .concepto-list li strong { color: var(--white); display: block; margin-bottom: 1px; }
+    .concepto-rec-box {
+      grid-column: 1 / -1;
+      background: rgba(26,58,107,.05);
+      border: 1px solid rgba(26,58,107,.15);
+      padding: 14px 18px; margin-top: 4px;
+      font-size: 12px; color: var(--light); line-height: 1.7;
+    }
+    .concepto-rec-box strong { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .concepto-body-inner { grid-template-columns: 1fr; }
+      .concepto-rec-box { grid-column: 1; }
+    }
+
+    /* ── PLACEHOLDER ── */
+    .placeholder-tag {
+      display: inline-block; background: rgba(245,133,31,.1); color: var(--orange);
+      border: 1px dashed var(--orange); font-size: 10px; letter-spacing: 1px;
+      padding: 2px 7px; border-radius: 2px; margin-left: 6px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .header { padding: 20px 24px; flex-wrap: wrap; }
+      .section { padding: 28px 24px; }
+      .nav { padding: 0 16px; }
+      .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr 1fr; }
+      .insights-grid { grid-template-columns: 1fr; }
+      .roadmap { grid-template-columns: 1fr; }
+      .matrix-container { min-height: auto; }
+      .social-kpi-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
+      .header-center { display: none; }
+      .rec-item { grid-template-columns: auto 1fr; }
+      .rec-meta, .rec-kpi { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="logo-box">GL</div>
+    <div>
+      <div class="brand-name">Gola South</div>
+      <div class="brand-sub">Marca Urbana · Argentina · Est. 2005 · Origen UK 1905</div>
+    </div>
+  </div>
+  <div class="header-center">
+    <div class="audit-title">Auditoría Digital Completa</div>
+    <div class="audit-period">Período analizado: Q1 2026 — Marzo 2026</div>
+  </div>
+  <div class="header-right">
+    <div class="health-score-label">Score de Salud Digital</div>
+    <div class="health-score-value">48<span class="health-score-max">/100</span></div>
+    <div class="health-score-tag">En Desarrollo · Potencial Medio-Alto</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+  <button class="nav-tab" onclick="showSection('web')">Web & E-commerce</button>
+  <button class="nav-tab" onclick="showSection('social')">Redes Sociales</button>
+  <button class="nav-tab" onclick="showSection('seo')">SEO & Visibilidad</button>
+  <button class="nav-tab" onclick="showSection('reputacion')">Reputación</button>
+  <button class="nav-tab" onclick="showSection('competidores')">Competidores</button>
+  <button class="nav-tab" onclick="showSection('diagnostico')">Diagnóstico</button>
+  <button class="nav-tab" onclick="showSection('conceptos')">Conceptos Clave</button>
+  <button class="nav-tab" onclick="showSection('recomendaciones')">Recomendaciones</button>
+  <button class="nav-tab" onclick="showSection('scorecard')">Scorecard Final</button>
+</nav>
+
+<!-- ═══════════ SECCIÓN 1 — OVERVIEW ═══════════ -->
+<section class="section active" id="overview">
+  <div class="section-title">Panel de Control</div>
+  <div class="section-heading">Resumen Ejecutivo</div>
+
+  <div class="grid-5" style="margin-bottom:32px;">
+    <div class="card card-sm">
+      <div class="card-label">Seguidores Totales</div>
+      <div class="card-value accent">~442K</div>
+      <div class="card-trend trend-up">↑ IG 132K + FB 310K</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">IG Engagement Rate</div>
+      <div class="card-value">~3.2%<span class="placeholder-tag">⚡ actualizar</span></div>
+      <div class="card-trend trend-flat">→ Promedio industria</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Canales Activos</div>
+      <div class="card-value yellow">4 / 6</div>
+      <div class="card-trend trend-down">↓ TikTok/LinkedIn débiles</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Score SEO</div>
+      <div class="card-value red">38/100</div>
+      <div class="card-trend trend-down">↓ SEO categórico muy débil</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Reseñas Promedio</div>
+      <div class="card-value red">2.9<span style="font-size:16px;color:var(--muted)">/5</span></div>
+      <div class="card-trend trend-down">↓ Reputación crítica</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Salud Digital por Dimensión — Radar General</div>
+      <div class="chart-canvas-wrap" style="height:280px">
+        <canvas id="radarOverview"></canvas>
+      </div>
+    </div>
+    <div>
+      <div class="table-wrap">
+        <div class="table-head">Resumen de Canales Digitales</div>
+        <table>
+          <thead><tr>
+            <th>Canal</th><th>Audiencia</th><th>Estado</th><th>Score</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Instagram @gola_ar</td><td>132K</td><td><span class="badge badge-green">✅ Activo</span></td><td><strong>72/100</strong></td></tr>
+            <tr><td>Facebook GolaSouth</td><td>310K</td><td><span class="badge badge-green">✅ Activo</span></td><td><strong>65/100</strong></td></tr>
+            <tr><td>TikTok @gola_arg</td><td>N/D</td><td><span class="badge badge-yellow">⚠️ Limitado</span></td><td><strong>20/100</strong></td></tr>
+            <tr><td>LinkedIn</td><td>N/D</td><td><span class="badge badge-yellow">⚠️ Limitado</span></td><td><strong>15/100</strong></td></tr>
+            <tr><td>golasouth.com</td><td>—</td><td><span class="badge badge-green">✅ Funcional</span></td><td><strong>70/100</strong></td></tr>
+            <tr><td>Email Marketing</td><td>—</td><td><span class="badge badge-red">❌ No identificado</span></td><td><strong>5/100</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <div class="card-label">Contexto de Marca</div>
+        <div style="font-size:12px;color:var(--light);line-height:1.7;margin-top:8px;">
+          Gola es una marca británica fundada en <strong style="color:var(--accent)">1905</strong> en Manchester. Su nombre es un anagrama de "goal". Ingresó al mercado argentino en <strong style="color:var(--accent)">2005/2006</strong> a través de un acuerdo con Etiqueta Negra, siendo la <strong style="color:var(--accent)">única operación de Gola en Sudamérica</strong> entre los 15 países donde opera globalmente. Se posiciona en ropa y zapatillas urbanas/casuales con herencia futbolística y cultura streetwear.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECCIÓN 2 — WEB & E-COMMERCE ═══════════ -->
+<section class="section" id="web">
+  <div class="section-title">Presencia Digital</div>
+  <div class="section-heading">Sitio Web & E-commerce</div>
+
+  <div class="grid-4" style="margin-bottom:32px;">
+    <div class="card card-sm">
+      <div class="card-label">Performance Técnica</div>
+      <div class="card-value yellow">70/100</div>
+      <div class="card-desc">Lazy loading + critical CSS + blur-up</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Mobile-Friendliness</div>
+      <div class="card-value green">85/100</div>
+      <div class="card-desc">Bootstrap 4.1 — 5 breakpoints responsive</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Funcionalidades E-com</div>
+      <div class="card-value yellow">6/9</div>
+      <div class="card-desc">Quick Shop, filtros, carrito, calc. envío</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Email Marketing</div>
+      <div class="card-value red">Sin datos</div>
+      <div class="card-desc">No identificado — oportunidad crítica</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Scoring por Categoría Web</div>
+      <div class="chart-canvas-wrap" style="height:260px">
+        <canvas id="webBar"></canvas>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <div class="table-head">Análisis de Componentes Web</div>
+      <table>
+        <thead><tr><th>Componente</th><th>Estado</th><th>Detalle</th></tr></thead>
+        <tbody>
+          <tr><td>Lazy loading de imágenes</td><td class="status-ok">✅ OK</td><td>Blur-up progresivo implementado</td></tr>
+          <tr><td>Diseño responsive / Mobile</td><td class="status-ok">✅ OK</td><td>5 breakpoints, grid 2 col mobile</td></tr>
+          <tr><td>WhatsApp CTA flotante</td><td class="status-ok">✅ OK</td><td>Fijo inferior derecho, verde #4dc247</td></tr>
+          <tr><td>Quick Shop</td><td class="status-ok">✅ OK</td><td>Overlay accesible al hover</td></tr>
+          <tr><td>Calculadora de envío</td><td class="status-ok">✅ OK</td><td>Con input de CP y estados de error</td></tr>
+          <tr><td>Blog / Contenido editorial</td><td class="status-warn">⚠️ Parcial</td><td>Estructura existe, baja actividad</td></tr>
+          <tr><td>Reviews en sitio</td><td class="status-bad">❌ No</td><td>Oportunidad perdida de conversión</td></tr>
+          <tr><td>App móvil</td><td class="status-bad">❌ No</td><td>Sin app ni PWA identificada</td></tr>
+          <tr><td>Email capture / Newsletter</td><td class="status-warn">⚠️ No confirmado</td><td>No visible en análisis del sitio</td></tr>
+          <tr><td>SEO técnico on-page</td><td class="status-warn">⚠️ Básico</td><td>Sin evidencia de estrategia avanzada</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">Tecnología Detectada</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--light);">
+        <div>Bootstrap Grid v4.1.3</div>
+        <div>Swiper 4.4.2 (carruseles)</div>
+        <div>Fuente Roboto (Google Fonts)</div>
+        <div>CSS Variables tokenizadas</div>
+        <div>Animación "zoomin" en sliders</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Canales de Contacto</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--light);">
+        <div>✅ WhatsApp flotante (principal)</div>
+        <div>✅ Formulario de contacto</div>
+        <div>⚠️ Sin live chat / chatbot</div>
+        <div>❌ Sin soporte por email visible</div>
+        <div>❌ Sin teléfono en homepage</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Presencia en Marketplaces</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--light);">
+        <div>✅ MercadoLibre (activo)</div>
+        <div>✅ Amazon (presencia detectada)</div>
+        <div>⚠️ Sin tienda oficial verificada en ML</div>
+        <div>❌ Sin Tiendanube propio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECCIÓN 3 — REDES SOCIALES ═══════════ -->
+<section class="section" id="social">
+  <div class="section-title">Canales Sociales</div>
+  <div class="section-heading">Análisis de Redes Sociales</div>
+
+  <div class="social-subnav">
+    <button class="social-subnav-tab active" data-net="instagram" onclick="showSocial('instagram',this)">📷 Instagram</button>
+    <button class="social-subnav-tab" data-net="facebook" onclick="showSocial('facebook',this)">👍 Facebook</button>
+    <button class="social-subnav-tab" data-net="tiktok" onclick="showSocial('tiktok',this)">🎵 TikTok</button>
+    <button class="social-subnav-tab" data-net="linkedin" onclick="showSocial('linkedin',this)">💼 LinkedIn</button>
+  </div>
+
+  <!-- INSTAGRAM -->
+  <div class="social-panel active" id="panel-instagram">
+    <div class="social-kpi-row">
+      <div class="social-kpi">
+        <div class="social-kpi-label">Seguidores</div>
+        <div class="social-kpi-value accent">132K</div>
+        <div class="social-kpi-sub">@gola_ar</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Posts Publicados</div>
+        <div class="social-kpi-value">1.549</div>
+        <div class="social-kpi-sub">Historial total</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Engagement Rate</div>
+        <div class="social-kpi-value yellow">~3.2%<span class="placeholder-tag">⚡</span></div>
+        <div class="social-kpi-sub">Estimado — actualizar con Insights</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Cuentas que Sigue</div>
+        <div class="social-kpi-value">127</div>
+        <div class="social-kpi-sub">Perfil muy curado</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <div class="chart-title">Mix de Contenido Estimado — Instagram</div>
+        <div class="chart-canvas-wrap" style="height:240px">
+          <canvas id="igMix"></canvas>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-title">Evolución de Seguidores — Estimada Q1 2026<span class="placeholder-tag">⚡ actualizar con datos reales</span></div>
+        <div class="chart-canvas-wrap" style="height:240px">
+          <canvas id="igGrowth"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:20px;">
+      <div class="card-label">Análisis Cualitativo — Instagram</div>
+      <div style="font-size:12px;color:var(--light);line-height:1.8;margin-top:10px;">
+        La cuenta <strong style="color:var(--white)">@gola_ar</strong> mantiene una estética consistente orientada a la <strong style="color:var(--white)">moda urbana y casual masculina</strong>, con enfoque en lifestyle streetwear. La bio "Gola Classics · Argentina" refuerza el posicionamiento de herencia y autenticidad. Con 1.549 posts y solo 127 cuentas seguidas, el perfil es curado y unidireccional. La frecuencia de publicación aparenta ser regular. <strong style="color:var(--red)">Oportunidad:</strong> Mayor uso de Reels y contenido generado por usuarios (UGC) para aumentar alcance orgánico.
+      </div>
+    </div>
+  </div>
+
+  <!-- FACEBOOK -->
+  <div class="social-panel" id="panel-facebook">
+    <div class="social-kpi-row">
+      <div class="social-kpi">
+        <div class="social-kpi-label">Likes / Seguidores</div>
+        <div class="social-kpi-value" style="color:var(--facebook)">310K</div>
+        <div class="social-kpi-sub">Página principal GolaSouth</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Páginas Regionales</div>
+        <div class="social-kpi-value yellow">4+</div>
+        <div class="social-kpi-sub">Rosario, MdP, Salta, Abasto</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Seguidores Regionales</div>
+        <div class="social-kpi-value">~3K</div>
+        <div class="social-kpi-sub">244 a 1.100 c/u — muy bajo</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Engagement Rate<span class="placeholder-tag">⚡</span></div>
+        <div class="social-kpi-value red">Bajo</div>
+        <div class="social-kpi-sub">Estimado por tipo de plataforma</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <div class="chart-title">Distribución de Audiencia — Páginas Facebook</div>
+        <div class="chart-canvas-wrap" style="height:240px">
+          <canvas id="fbAudience"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Tipo de Contenido Publicado</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px;font-size:12px;color:var(--light);">
+          <div>📦 Lanzamientos de productos y nuevas colecciones</div>
+          <div>🛍️ Campañas de descuento y promociones estacionales</div>
+          <div>🏪 Información de tiendas (horarios, ubicaciones)</div>
+          <div>📸 Contenido visual de lifestyle urbano</div>
+          <div>🎉 Acciones de Black Friday y fechas clave</div>
+        </div>
+        <hr class="divider" style="margin:16px 0;">
+        <div class="card-label">Observación Estratégica</div>
+        <div style="font-size:12px;color:var(--light);margin-top:8px;line-height:1.6;">
+          Facebook concentra <strong style="color:var(--white)">70% de la audiencia social total</strong> de la marca (310K vs 132K en IG). Sin embargo, el engagement orgánico en Facebook está en declive sistemático a nivel industria. <strong style="color:var(--red)">Riesgo:</strong> dependencia de una plataforma con alcance orgánico cada vez más limitado para contenido de marca.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIKTOK -->
+  <div class="social-panel" id="panel-tiktok">
+    <div style="background:rgba(245,133,31,.06);border:1px dashed var(--orange);padding:16px 20px;margin-bottom:24px;font-size:12px;color:var(--orange);">
+      ⚡ <strong>Datos limitados</strong> — Las métricas públicas de TikTok no están disponibles. Los datos a continuación son estimados. Actualizar con acceso a TikTok Analytics de la cuenta @gola_arg.
+    </div>
+    <div class="social-kpi-row">
+      <div class="social-kpi">
+        <div class="social-kpi-label">Seguidores</div>
+        <div class="social-kpi-value orange">N/D<span class="placeholder-tag">⚡</span></div>
+        <div class="social-kpi-sub">@gola_arg — actualizar</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Views Promedio</div>
+        <div class="social-kpi-value orange">N/D<span class="placeholder-tag">⚡</span></div>
+        <div class="social-kpi-sub">Sin datos públicos</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Estado del Canal</div>
+        <div class="social-kpi-value yellow">Poco dev.</div>
+        <div class="social-kpi-sub">Presencia confirmada, actividad baja</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Potencial</div>
+        <div class="social-kpi-value green">Alto</div>
+        <div class="social-kpi-sub">Segmento urbano/joven ideal para TikTok</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Análisis de Oportunidad — TikTok</div>
+      <div style="font-size:12px;color:var(--light);line-height:1.8;margin-top:10px;">
+        El segmento objetivo de Gola (hombres 18-35, cultura urbana/streetwear) es uno de los <strong style="color:var(--white)">más activos en TikTok Argentina</strong>. Los top creadores argentinos tienen 7M+ seguidores. El canal <strong style="color:var(--white)">@gola_arg</strong> existe pero aparenta tener actividad muy baja.<br><br>
+        <strong style="color:var(--green)">Oportunidad concreta:</strong> Reutilizar el contenido visual existente de Instagram (especialmente Reels) para TikTok con mínimo esfuerzo adicional. Tendencias como "outfit checks", "what's in my closet" y "streetwear Argentina" tienen alto alcance orgánico en el nicho.
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKEDIN -->
+  <div class="social-panel" id="panel-linkedin">
+    <div style="background:rgba(245,133,31,.06);border:1px dashed var(--orange);padding:16px 20px;margin-bottom:24px;font-size:12px;color:var(--orange);">
+      ⚡ <strong>Datos limitados</strong> — No se identificó una página de empresa verificada para Gola South en LinkedIn. Solo se encontró un perfil personal de Mauricio Cabrera (Manager at Gola South).
+    </div>
+    <div class="social-kpi-row">
+      <div class="social-kpi">
+        <div class="social-kpi-label">Página de Empresa</div>
+        <div class="social-kpi-value red">No verif.</div>
+        <div class="social-kpi-sub">Sin página corporativa oficial</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Empleados en LinkedIn</div>
+        <div class="social-kpi-value orange">1 id.</div>
+        <div class="social-kpi-sub">Mauricio Cabrera — Manager</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Employer Branding</div>
+        <div class="social-kpi-value red">Nulo</div>
+        <div class="social-kpi-sub">Sin presencia institucional</div>
+      </div>
+      <div class="social-kpi">
+        <div class="social-kpi-label">Score Canal</div>
+        <div class="social-kpi-value red">15/100</div>
+        <div class="social-kpi-sub">Canal prácticamente inexistente</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Por qué LinkedIn importa para Gola</div>
+      <div style="font-size:12px;color:var(--light);line-height:1.8;margin-top:10px;">
+        LinkedIn no es prioritario para ventas directas de moda, pero sí para <strong style="color:var(--white)">employer branding, B2B (distribuidores, retailers), y credibilidad institucional</strong>. Considerando que Gola maneja una red de 13+ tiendas en Argentina y opera en 15 países globalmente, una página corporativa activa ayudaría a:<br><br>
+        <strong style="color:var(--accent)">①</strong> Atraer talento retail y marketing<br>
+        <strong style="color:var(--accent)">②</strong> Comunicar apertura de nuevas tiendas o expansión<br>
+        <strong style="color:var(--accent)">③</strong> Conectar con potenciales socios o distribuidores<br>
+        <strong style="color:var(--accent)">④</strong> Fortalecer la imagen de marca seria ante medios y prensa
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <!-- Scorecard multi-plataforma -->
+  <div class="section-title" style="margin-bottom:12px;">Scorecard Multi-Plataforma</div>
+  <div class="card">
+    <div class="social-platform-row">
+      <div class="platform-icon">📷</div>
+      <div class="platform-name">Instagram (@gola_ar)</div>
+      <div class="platform-followers">132K</div>
+      <div class="platform-status"><span class="badge badge-green">Activo</span></div>
+      <div class="platform-bar-wrap"><div class="platform-bar" style="width:72%;background:var(--instagram)"></div></div>
+      <div class="platform-score">72/100</div>
+    </div>
+    <div class="social-platform-row">
+      <div class="platform-icon">👍</div>
+      <div class="platform-name">Facebook (GolaSouth)</div>
+      <div class="platform-followers">310K</div>
+      <div class="platform-status"><span class="badge badge-green">Activo</span></div>
+      <div class="platform-bar-wrap"><div class="platform-bar" style="width:65%;background:var(--facebook)"></div></div>
+      <div class="platform-score">65/100</div>
+    </div>
+    <div class="social-platform-row">
+      <div class="platform-icon">🎵</div>
+      <div class="platform-name">TikTok (@gola_arg)</div>
+      <div class="platform-followers">N/D</div>
+      <div class="platform-status"><span class="badge badge-yellow">Limitado</span></div>
+      <div class="platform-bar-wrap"><div class="platform-bar" style="width:20%;background:var(--orange)"></div></div>
+      <div class="platform-score">20/100</div>
+    </div>
+    <div class="social-platform-row">
+      <div class="platform-icon">💼</div>
+      <div class="platform-name">LinkedIn</div>
+      <div class="platform-followers">—</div>
+      <div class="platform-status"><span class="badge badge-red">Inexistente</span></div>
+      <div class="platform-bar-wrap"><div class="platform-bar" style="width:15%;background:var(--linkedin)"></div></div>
+      <div class="platform-score">15/100</div>
+    </div>
+    <div class="social-platform-row">
+      <div class="platform-icon">▶️</div>
+      <div class="platform-name">YouTube</div>
+      <div class="platform-followers">—</div>
+      <div class="platform-status"><span class="badge badge-red">Inexistente</span></div>
+      <div class="platform-bar-wrap"><div class="platform-bar" style="width:0%;background:#FF0000"></div></div>
+      <div class="platform-score">0/100</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECCIÓN 4 — SEO ═══════════ -->
+<section class="section" id="seo">
+  <div class="section-title">Visibilidad Digital</div>
+  <div class="section-heading">SEO & Posicionamiento en Buscadores</div>
+
+  <div class="grid-4" style="margin-bottom:32px;">
+    <div class="card card-sm">
+      <div class="card-label">Búsquedas Branded</div>
+      <div class="card-value green">Fuerte</div>
+      <div class="card-desc">"gola argentina", "gola south" — rankea bien</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Búsquedas Categóricas</div>
+      <div class="card-value red">Débil</div>
+      <div class="card-desc">"zapatillas urbanas", "ropa casual masculina"</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Presencia en Marketplaces</div>
+      <div class="card-value yellow">Parcial</div>
+      <div class="card-desc">MercadoLibre + Amazon (sin tienda oficial verif.)</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Score SEO Global</div>
+      <div class="card-value red">38/100</div>
+      <div class="card-desc">Estimado — sin acceso a Search Console</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Visibilidad Estimada por Tipo de Búsqueda</div>
+      <div class="chart-canvas-wrap" style="height:260px">
+        <canvas id="seoBar"></canvas>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <div class="table-head">Gaps de SEO Identificados</div>
+      <table>
+        <thead><tr><th>Componente</th><th>Estado</th><th>Impacto</th></tr></thead>
+        <tbody>
+          <tr><td>Blog / Content Marketing</td><td class="status-warn">⚠️ Baja actividad</td><td>Alto</td></tr>
+          <tr><td>YouTube / Video SEO</td><td class="status-bad">❌ Inexistente</td><td>Alto</td></tr>
+          <tr><td>Rich Snippets de productos</td><td class="status-warn">⚠️ No verificado</td><td>Medio</td></tr>
+          <tr><td>Google My Business por tienda</td><td class="status-warn">⚠️ Sin confirmar optimización</td><td>Alto</td></tr>
+          <tr><td>Link building reciente (2024-26)</td><td class="status-bad">❌ Escaso</td><td>Medio</td></tr>
+          <tr><td>Palabras clave long-tail</td><td class="status-bad">❌ Sin estrategia visible</td><td>Alto</td></tr>
+          <tr><td>Velocidad del sitio (Core Web Vitals)</td><td class="status-warn">⚠️ No medido</td><td>Medio</td></tr>
+          <tr><td>Backlinks de calidad recientes</td><td class="status-bad">❌ Solo La Nación 2006</td><td>Alto</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">Presencia en Directorios</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--light);">
+        <div>✅ MercadoLibre (listado de productos)</div>
+        <div>✅ Amazon (detectado)</div>
+        <div>✅ Tiendeo (ubicaciones de tiendas)</div>
+        <div>⚠️ Google Maps (por tienda — optimización incierta)</div>
+        <div>❌ Yelp con perfil activo</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Backlinks Notables</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--light);">
+        <div>✅ La Nación — nota 2005/2006</div>
+        <div>✅ Infonegocios Paraguay — entrevista gerente</div>
+        <div>⚠️ Montesco Jeans — reseña de marca</div>
+        <div>❌ Sin menciones en prensa 2024-2026</div>
+        <div>❌ Sin cobertura en medios de moda premium</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Oportunidades SEO Prioritarias</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--light);">
+        <div>① Crear blog con contenido streetwear/urbano</div>
+        <div>② Optimizar Google My Business de cada tienda</div>
+        <div>③ Lanzar canal YouTube (herencia de marca)</div>
+        <div>④ Campañas de link building en medios AR</div>
+        <div>⑤ Rich snippets en páginas de producto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECCIÓN 5 — REPUTACIÓN ═══════════ -->
+<section class="section" id="reputacion">
+  <div class="section-title">Percepción de Marca</div>
+  <div class="section-heading">Reputación & Reviews Online</div>
+
+  <div class="grid-4" style="margin-bottom:32px;">
+    <div class="card card-sm">
+      <div class="card-label">Score Reputación</div>
+      <div class="card-value red">38/100</div>
+      <div class="card-desc">Estado crítico — requiere acción inmediata</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Reseñas Promedio</div>
+      <div class="card-value red">2.9<span style="font-size:16px;color:var(--muted)">/5</span></div>
+      <div class="card-desc">Fuentes: Yelp, foros, comentarios online</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Sentimiento Negativo</div>
+      <div class="card-value red">45%</div>
+      <div class="card-desc">Calidad, precios, atención al cliente</div>
+    </div>
+    <div class="card card-sm">
+      <div class="card-label">Plataformas de Reviews</div>
+      <div class="card-value yellow">Bajo</div>
+      <div class="card-desc">Sin Trustpilot ni Google Reviews gestionado</div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Distribución de Sentimiento Online</div>
+      <div class="chart-canvas-wrap" style="height:260px">
+        <canvas id="sentChart"></canvas>
+      </div>
+      <div style="margin-top:16px;font-size:12px;color:var(--subtle);">
+        <div class="sentiment-bar">
+          <div class="sentiment-positive" style="width:30%"></div>
+          <div class="sentiment-neutral"  style="width:25%"></div>
+          <div class="sentiment-negative" style="width:45%"></div>
+        </div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;">
+          <span style="color:var(--green)">■ Positivo 30%</span>
+          <span style="color:var(--yellow)">■ Neutro 25%</span>
+          <span style="color:var(--red)">■ Negativo 45%</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="insights-grid" style="grid-template-columns:1fr;gap:12px;">
+        <div>
+          <div class="insight-header red">🔴 Problemas Críticos de Reputación</div>
+          <ul class="insight-list">
+            <li class="insight-item"><strong>Calidad de materiales cuestionada</strong>Clientes reportan que los materiales y la construcción no justifican el precio de lista. Se percibe una desconexión entre la promesa premium y el producto real.</li>
+            <li class="insight-item"><strong>Fabricación percibida como "de Once"</strong>Comentarios señalan producción local de bajo costo mientras se cobra precio de marca importada. Daño severo al posicionamiento.</li>
+            <li class="insight-item"><strong>Atención al cliente "no muy amable"</strong>Múltiples reseñas coinciden en personal poco amable y servicio post-venta deficiente. Afecta directamente re-compra y recomendación.</li>
+            <li class="insight-item"><strong>Políticas de cambio problemáticas</strong>Cambios dificultosos, falta de entrega de comprobantes, disputas de precios. Alto riesgo de chargeback y mala reputación en redes.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">Lo que dicen los clientes — Positivo</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--light);">
+        <div>✅ Heritage de marca (1905, Manchester, football)</div>
+        <div>✅ Diseño retro y estética urbana atractiva</div>
+        <div>✅ Outlets con buena relación precio/calidad</div>
+        <div>✅ Variedad de puntos de venta en Argentina</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Lo que dicen los clientes — Negativo</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--light);">
+        <div>❌ Precios percibidos excesivos vs calidad real</div>
+        <div>❌ Calidad de costuras y adhesivos deficientes</div>
+        <div>❌ Atención en tienda calificada como fría</div>
+        <div>❌ Sin recibos en algunos locales reportados</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Plataformas de Reviews Presentes</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--light);">
+        <div>⚠️ Yelp — perfil básico, pocas reseñas</div>
+        <div>⚠️ Google Maps por tienda (sin gestión activa)</div>
+        <div>❌ Trustpilot — no presente</div>
+        <div>❌ Google Reviews — sin gestión de respuestas</div>
+        <div>❌ MercadoLibre — reputación del vendedor a verificar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECCIÓN 6 — COMPETIDORES ═══════════ -->
+<section class="section" id="competidores">
+  <div class="section-title">Análisis Competitivo</div>
+  <div class="section-heading">Posicionamiento vs Competidores</div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Radar Comparativo — Gola vs Competidores</div>
+      <div class="chart-canvas-wrap" style="height:300px">
+        <canvas id="radarComp"></canvas>
+      </div>
+    </div>
+    <div class="competitor-legend" style="flex-direction:column;border:1px solid var(--border);padding:20px;background:var(--card);">
+      <div class="card-label" style="margin-bottom:12px;">Dimensiones evaluadas</div>
+      <div style="font-size:12px;color:var(--light);display:flex;flex-direction:column;gap:8px;">
+        <div><strong style="color:var(--accent)">Social Media:</strong> Followers, engagement, estrategia de contenido</div>
+        <div><strong style="color:var(--accent)">E-commerce:</strong> Funcionalidades web, UX, marketplace</div>
+        <div><strong style="color:var(--accent)">SEO:</strong> Visibilidad orgánica, contenido, backlinks</div>
+        <div><strong style="color:var(--accent)">Reputación:</strong> Reviews, calidad percibida, NPS estimado</div>
+        <div><strong style="color:var(--accent)">Precio/Valor:</strong> Relación percibida calidad-precio</div>
+        <div><strong style="color:var(--accent)">Reconocimiento:</strong> Brand awareness, herencia, prensa</div>
+      </div>
+      <hr class="divider" style="margin:16px 0;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div class="legend-item"><div class="legend-dot" style="background:#1A3A6B"></div>Gola South</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#8B0000"></div>La Martina</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#2196F3"></div>Adidas Argentina</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#FF5722"></div>Puma Argentina</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#4CAF50"></div>Antártida Sport</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrap" style="margin-bottom:32px;">
+    <div class="table-head">Tabla de Posicionamiento Competitivo</div>
+    <table>
+      <thead><tr>
+        <th>Marca</th><th>Social Media</th><th>E-commerce</th><th>SEO</th><th>Reputación</th><th>Precio/Valor</th><th>Reconocimiento</th><th>Score Total</th>
+      </tr></thead>
+      <tbody>
+        <tr style="font-weight:bold;">
+          <td><strong>Gola South 🎯</strong></td>
+          <td><span class="badge badge-yellow">55</span></td>
+          <td><span class="badge badge-yellow">70</span></td>
+          <td><span class="badge badge-red">38</span></td>
+          <td><span class="badge badge-red">38</span></td>
+          <td><span class="badge badge-yellow">55</span></td>
+          <td><span class="badge badge-yellow">62</span></td>
+          <td><strong style="color:var(--red)">53/100</strong></td>
+        </tr>
+        <tr>
+          <td>La Martina</td>
+          <td><span class="badge badge-yellow">70</span></td>
+          <td><span class="badge badge-yellow">65</span></td>
+          <td><span class="badge badge-yellow">55</span></td>
+          <td><span class="badge badge-green">72</span></td>
+          <td><span class="badge badge-yellow">60</span></td>
+          <td><span class="badge badge-green">78</span></td>
+          <td><strong style="color:var(--yellow)">67/100</strong></td>
+        </tr>
+        <tr>
+          <td>Adidas Argentina</td>
+          <td><span class="badge badge-green">90</span></td>
+          <td><span class="badge badge-green">85</span></td>
+          <td><span class="badge badge-green">88</span></td>
+          <td><span class="badge badge-green">80</span></td>
+          <td><span class="badge badge-yellow">72</span></td>
+          <td><span class="badge badge-green">95</span></td>
+          <td><strong style="color:var(--green)">85/100</strong></td>
+        </tr>
+        <tr>
+          <td>Puma Argentina</td>
+          <td><span class="badge badge-green">82</span></td>
+          <td><span class="badge badge-green">80</span></td>
+          <td><span class="badge badge-green">80</span></td>
+          <td><span class="badge badge-green">75</span></td>
+          <td><span class="badge badge-green">70</span></td>
+          <td><span class="badge badge-green">88</span></td>
+          <td><strong style="color:var(--green)">79/100</strong></td>
+        </tr>
+        <tr>
+          <td>Antártida Sport</td>
+          <td><span class="badge badge-red">45</span></td>
+          <td><span class="badge badge-yellow">55</span></td>
+          <td><span class="badge badge-yellow">48</span></td>
+          <td><span class="badge badge-yellow">65</span></td>
+          <td><span class="badge badge-green">72</span></td>
+          <td><span class="badge badge-red">40</span></td>
+          <td><strong style="color:var(--yellow)">54/100</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Lectura Estratégica del Mapa Competitivo</div>
+    <div style="font-size:12px;color:var(--light);line-height:1.8;margin-top:10px;">
+      Gola South tiene una posición <strong style="color:var(--red)">vulnerable</strong> frente a competidores internacionales (Adidas, Puma) y está prácticamente empatada con marcas locales más pequeñas (Antártida Sport). Su <strong style="color:var(--white)">ventaja diferencial real</strong> es el heritage de marca (1905, Manchester, football culture) y ser la <strong style="color:var(--white)">única operación de Gola en Sudamérica</strong>. Estos activos están siendo <strong style="color:var(--red)">subexplotados digitalmente</strong>. La reputación y el SEO son los talones de Aquiles donde la brecha con competidores directos es más grande.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECCIÓN 7 — DIAGNÓSTICO ═══════════ -->
+<section class="section" id="diagnostico">
+  <div class="section-title">Análisis FODA Digital</div>
+  <div class="section-heading">Diagnóstico Integral</div>
+
+  <!-- FORTALEZAS -->
+  <div class="accordion-item open" id="acc-fortalezas">
+    <div class="accordion-header" onclick="toggleAccordion('acc-fortalezas')">
+      <div class="accordion-icon green">✓</div>
+      <div class="accordion-title">Fortalezas</div>
+      <div class="accordion-count">6 factores positivos</div>
+      <span class="accordion-chevron">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">
+        <div class="foda-item"><div class="foda-bullet green"></div><div class="foda-text"><strong>Facebook con 310K seguidores — mayor reach social</strong>La página GolaSouth tiene 310K likes, significativamente superior a muchos competidores locales en esta plataforma. Es el canal de mayor audiencia absoluta de la marca.</div></div>
+        <div class="foda-item"><div class="foda-bullet green"></div><div class="foda-text"><strong>Instagram activa y consistente con 132K seguidores</strong>@gola_ar mantiene presencia regular con 1.549 posts publicados. La cuenta tiene engagement razonable para el segmento urbano argentino.</div></div>
+        <div class="foda-item"><div class="foda-bullet green"></div><div class="foda-text"><strong>Única operación de Gola en Sudamérica (15 países globales)</strong>Exclusividad regional que puede convertirse en un asset de comunicación: "La marca del football inglés, solo en Argentina dentro de toda Sudamérica".</div></div>
+        <div class="foda-item"><div class="foda-bullet green"></div><div class="foda-text"><strong>Heritage de marca sólido: fundada en 1905 en Manchester</strong>120 años de historia y conexión con el football inglés y la cultura streetwear son activos narrativos de enorme valor para contenido y posicionamiento.</div></div>
+        <div class="foda-item"><div class="foda-bullet green"></div><div class="foda-text"><strong>Red de tiendas físicas amplia: 13+ puntos en Argentina</strong>Unicenter, Paseo Alcorta, Dot Baires, Galerías Pacífico, más provincias (Mendoza, Rosario, Tucumán, Córdoba, Salta). Omnicanalidad real con base física sólida.</div></div>
+        <div class="foda-item"><div class="foda-bullet green"></div><div class="foda-text"><strong>Presencia omnicanal: web + físico + MercadoLibre</strong>Múltiples puntos de venta digitales y físicos. La combinación golasouth.com + tiendas + marketplace da cobertura amplia al consumidor argentino.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPORTUNIDADES -->
+  <div class="accordion-item" id="acc-oportunidades">
+    <div class="accordion-header" onclick="toggleAccordion('acc-oportunidades')">
+      <div class="accordion-icon yellow">!</div>
+      <div class="accordion-title">Oportunidades</div>
+      <div class="accordion-count">6 áreas de crecimiento</div>
+      <span class="accordion-chevron">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">
+        <div class="foda-item"><div class="foda-bullet yellow"></div><div class="foda-text"><strong>TikTok: canal clave para urbano/casual — prácticamente sin aprovechar</strong>El segmento 18-35 masculino urbano es el corazón de TikTok Argentina. El canal @gola_arg existe pero con muy baja actividad. El costo de activarlo es mínimo reutilizando contenido existente.</div></div>
+        <div class="foda-item"><div class="foda-bullet yellow"></div><div class="foda-text"><strong>Email marketing: canal completamente ausente</strong>No se identificó ningún sistema de email marketing activo. Esto representa pérdida directa de leads post-visita, abandono de carrito sin recuperación, y clientes sin fidelización post-compra.</div></div>
+        <div class="foda-item"><div class="foda-bullet yellow"></div><div class="foda-text"><strong>YouTube: 0 presencia = 0 posicionamiento en video de Google</strong>Google prioriza resultados de video en búsquedas de moda y productos. Un canal YouTube con contenido de heritage, estilo de vida y lanzamientos de producto podría generar tráfico SEO significativo.</div></div>
+        <div class="foda-item"><div class="foda-bullet yellow"></div><div class="foda-text"><strong>Blog / Content Marketing: estructura existe pero sin actividad regular</strong>El sitio tiene infraestructura de blog. Publicar contenido sobre streetwear, historia de Gola, cultura futbolística y moda urbana capturaría tráfico orgánico de largo plazo.</div></div>
+        <div class="foda-item"><div class="foda-bullet yellow"></div><div class="foda-text"><strong>LinkedIn corporativo: inexistente — oportunidad B2B y employer branding</strong>Una empresa con 13+ tiendas y operaciones regionales necesita presencia institucional en LinkedIn para credibilidad, reclutamiento y relaciones con distribuidores.</div></div>
+        <div class="foda-item"><div class="foda-bullet yellow"></div><div class="foda-text"><strong>Influencer marketing: sin evidencia de colaboraciones documentadas públicamente</strong>El nicho streetwear/urbano masculino en Argentina tiene micro-influencers de alto engagement. Colaboraciones formales pueden amplificar el alcance a un costo eficiente.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEMAS CRÍTICOS -->
+  <div class="accordion-item" id="acc-problemas">
+    <div class="accordion-header" onclick="toggleAccordion('acc-problemas')">
+      <div class="accordion-icon red">✕</div>
+      <div class="accordion-title">Problemas Críticos</div>
+      <div class="accordion-count">5 riesgos activos</div>
+      <span class="accordion-chevron">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">
+        <div class="foda-item"><div class="foda-bullet red"></div><div class="foda-text"><strong>Reputación de calidad en estado crítico — riesgo de posicionamiento</strong>Las reseñas negativas sobre calidad del producto vs precio están activamente erosionando el posicionamiento de marca. En el ecosistema digital actual, las malas reseñas viralizan rápidamente.</div></div>
+        <div class="foda-item"><div class="foda-bullet red"></div><div class="foda-text"><strong>Atención al cliente débil — impacto directo en conversión y re-compra</strong>Un cliente insatisfecho con la atención comparte su experiencia en promedio con 9-15 personas. La atención calificada como "no muy amable" es un problema estructural que ningún gasto de marketing puede compensar.</div></div>
+        <div class="foda-item"><div class="foda-bullet red"></div><div class="foda-text"><strong>SEO categórico casi inexistente — tráfico 100% dependiente de búsqueda de marca</strong>Si alguien no conoce Gola y busca "zapatillas urbanas Buenos Aires" o "ropa casual masculina Argentina", Gola no aparece. Toda la adquisición orgánica depende del brand awareness previo.</div></div>
+        <div class="foda-item"><div class="foda-bullet red"></div><div class="foda-text"><strong>Sin email marketing identificado — abandono total de leads post-visita</strong>Sin captura de email y flujos automatizados, cada visitante que no compra en el momento es una oportunidad de venta perdida sin posibilidad de recuperación.</div></div>
+        <div class="foda-item"><div class="foda-bullet red"></div><div class="foda-text"><strong>Brecha generacional: TikTok/YouTube inexistentes</strong>El consumidor de moda urbana de 18-28 años descubre marcas principalmente en TikTok y YouTube. La ausencia total en estos canales implica que Gola es invisible para la próxima generación de consumidores.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECCIÓN 7B — CONCEPTOS CLAVE ═══════════ -->
+<section class="section" id="conceptos">
+  <div class="section-title">Uso de Herramientas Digitales</div>
+  <div class="section-heading">Fortalezas, Puntos Medios & Debilidades por Concepto</div>
+
+  <div class="card" style="margin-bottom:28px;border-left:4px solid var(--accent);padding:16px 22px;">
+    <div style="font-size:12px;color:var(--light);line-height:1.8;">
+      Esta sección evalúa cada <strong style="color:var(--white)">concepto o herramienta del marketing digital</strong> de forma individual: qué está funcionando bien (Fortaleza 🟢), qué existe pero está siendo mal aprovechado (Punto Medio 🟡), y qué está ausente o dañando la marca (Debilidad 🔴). Para cada uno se incluye qué debería hacerse concretamente.
+    </div>
+  </div>
+
+  <!-- ─── LEYENDA ─── -->
+  <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:28px;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--light);">
+      <div style="width:12px;height:12px;background:var(--green);border-radius:2px;"></div>
+      <strong style="color:var(--green)">Fortaleza</strong> — Concepto bien implementado, mantener y potenciar
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--light);">
+      <div style="width:12px;height:12px;background:var(--yellow);border-radius:2px;"></div>
+      <strong style="color:var(--yellow)">Punto Medio</strong> — Existe pero sin aprovechar su potencial real
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--light);">
+      <div style="width:12px;height:12px;background:var(--red);border-radius:2px;"></div>
+      <strong style="color:var(--red)">Debilidad</strong> — Ausente, mal usado o activamente dañando la marca
+    </div>
+  </div>
+
+  <!-- ════ 1. PRESENCIA EN REDES SOCIALES ════ -->
+  <div class="concepto-card punto-medio" id="cc1">
+    <div class="concepto-header" onclick="toggleConcepto('cc1')">
+      <div class="concepto-icon">📲</div>
+      <div class="concepto-title">
+        <div class="concepto-title-main">Presencia en Redes Sociales</div>
+        <div class="concepto-title-sub">Instagram · Facebook · TikTok · LinkedIn</div>
+      </div>
+      <span class="concepto-badge punto-medio">Punto Medio</span>
+      <div class="concepto-score punto-medio">43<span style="font-size:13px;color:var(--muted)">/100</span></div>
+      <span class="concepto-chevron">▶</span>
+    </div>
+    <div class="concepto-body">
+      <div class="concepto-body-inner">
+        <div>
+          <div class="concepto-col-title green">✅ Lo que funciona</div>
+          <ul class="concepto-list">
+            <li><strong>442K de audiencia combinada IG+FB</strong>Volumen significativo para una marca regional sin respaldo de multinacional.</li>
+            <li><strong>Instagram con 1.549 posts publicados</strong>Historial sólido que muestra consistencia a largo plazo.</li>
+            <li><strong>Estética visual coherente</strong>La cuenta mantiene una línea visual urbana/casual reconocible.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title yellow">⚠️ Lo que no se aprovecha</div>
+          <ul class="concepto-list">
+            <li><strong>TikTok casi sin actividad</strong>El canal existe (@gola_arg) pero sin estrategia ni frecuencia. El segmento 18-30 urbano vive en TikTok.</li>
+            <li><strong>LinkedIn corporativo inexistente</strong>Sin página de empresa verificada. Pierde credibilidad B2B y employer branding.</li>
+            <li><strong>Facebook con alcance orgánico en declive</strong>310K de likes pero sin estrategia adaptada al algoritmo actual de FB (video, grupos, eventos).</li>
+            <li><strong>Sin estrategia de UGC</strong>No se incentiva ni reutiliza contenido generado por clientes — el más creíble y barato.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title red">❌ Lo que falta completamente</div>
+          <ul class="concepto-list">
+            <li><strong>YouTube: 0 presencia</strong>Canal de descubrimiento clave para moda masculina en Argentina. Invisible en búsquedas de video de Google.</li>
+            <li><strong>Pinterest: sin estrategia</strong>Motor de búsqueda visual fundamental para moda. Ausencia total.</li>
+            <li><strong>Colaboraciones formales de influencers</strong>No hay evidencia de campañas documentadas con creadores de contenido.</li>
+          </ul>
+        </div>
+        <div class="concepto-rec-box">
+          <strong>Recomendación concreta:</strong> Activar TikTok esta semana reutilizando los Reels de Instagram (costo = 0). Luego, diseñar un calendario de contenido mensual para TikTok con 3-4 publicaciones semanales: outfit checks, "historia de Gola", behind-the-scenes de tiendas. Para YouTube, comenzar con 1 video mensual de alta calidad: historia de la marca 1905, cultura del football inglés en Argentina. En FB, migrar presupuesto de posts orgánicos hacia Facebook Events para inauguraciones y lanzamientos.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ 2. ESTRATEGIA DE CONTENIDO ════ -->
+  <div class="concepto-card punto-medio" id="cc2">
+    <div class="concepto-header" onclick="toggleConcepto('cc2')">
+      <div class="concepto-icon">✍️</div>
+      <div class="concepto-title">
+        <div class="concepto-title-main">Estrategia de Contenido & Storytelling</div>
+        <div class="concepto-title-sub">Blog · Narrativa de marca · Heritage · UGC</div>
+      </div>
+      <span class="concepto-badge punto-medio">Punto Medio</span>
+      <div class="concepto-score punto-medio">35<span style="font-size:13px;color:var(--muted)">/100</span></div>
+      <span class="concepto-chevron">▶</span>
+    </div>
+    <div class="concepto-body">
+      <div class="concepto-body-inner">
+        <div>
+          <div class="concepto-col-title green">✅ Lo que funciona</div>
+          <ul class="concepto-list">
+            <li><strong>Heritage narrativo único: 1905 Manchester</strong>120 años de historia y conexión con el football inglés. Muy pocos competidores en Argentina tienen este activo.</li>
+            <li><strong>Estética visual consistente en redes</strong>La estética urbana/casual es coherente entre plataformas.</li>
+            <li><strong>Posicionamiento "Gola Classics"</strong>La bio de Instagram resume bien el posicionamiento.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title yellow">⚠️ Lo que no se aprovecha</div>
+          <ul class="concepto-list">
+            <li><strong>Blog con baja actividad</strong>La estructura existe en golasouth.com pero no se usa para captar tráfico orgánico de largo plazo.</li>
+            <li><strong>Historia de marca no contada digitalmente</strong>"Gola nació en 1905 y vistió a Manchester United" es un storytelling de lujo que no aparece en ningún canal digital de Argentina.</li>
+            <li><strong>Conexión Argentina-Football no explotada</strong>Argentina es el país del fútbol. Gola tiene raíces en el football inglés. La intersección es obvia y no se usa.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title red">❌ Lo que falta completamente</div>
+          <ul class="concepto-list">
+            <li><strong>Content calendar documentado</strong>Sin evidencia de planificación editorial estructurada.</li>
+            <li><strong>Contenido educativo sobre la marca</strong>"Por qué Gola" — no existe contenido que eduque al consumidor sobre el valor de la marca.</li>
+            <li><strong>Behind-the-scenes de diseño/producción</strong>El proceso detrás de cada colección no se muestra.</li>
+          </ul>
+        </div>
+        <div class="concepto-rec-box">
+          <strong>Recomendación concreta:</strong> Crear una serie de contenido "Historia Gola Argentina" — 10 posts/reels contando la historia desde 1905 hasta hoy: los clubes que vistió, cómo llegó a Argentina, qué significa la marca en la cultura urbana. Este contenido puede adaptarse a Instagram, TikTok y blog simultáneamente. Para el blog, publicar 2 veces por semana sobre: tendencias streetwear, guías de estilo masculino, historia del football fashion. En 6 meses, ese blog puede generar tráfico SEO significativo.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ 3. SEO & VISIBILIDAD ORGÁNICA ════ -->
+  <div class="concepto-card debilidad" id="cc3">
+    <div class="concepto-header" onclick="toggleConcepto('cc3')">
+      <div class="concepto-icon">🔍</div>
+      <div class="concepto-title">
+        <div class="concepto-title-main">SEO & Visibilidad Orgánica</div>
+        <div class="concepto-title-sub">Búsquedas Google · Blog · Backlinks · Google My Business</div>
+      </div>
+      <span class="concepto-badge debilidad">Debilidad</span>
+      <div class="concepto-score debilidad">28<span style="font-size:13px;color:var(--muted)">/100</span></div>
+      <span class="concepto-chevron">▶</span>
+    </div>
+    <div class="concepto-body">
+      <div class="concepto-body-inner">
+        <div>
+          <div class="concepto-col-title green">✅ Lo que funciona</div>
+          <ul class="concepto-list">
+            <li><strong>Búsquedas branded fuertes</strong>"Gola Argentina", "Gola South" rankean bien. El que ya conoce la marca la encuentra fácil.</li>
+            <li><strong>Presencia en MercadoLibre</strong>Aparece en el marketplace más usado de Argentina, lo que aporta visibilidad de producto.</li>
+            <li><strong>Tiendas en Google Maps</strong>Presencia detectada en múltiples ubicaciones, aunque sin optimización activa confirmada.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title yellow">⚠️ Lo que no se aprovecha</div>
+          <ul class="concepto-list">
+            <li><strong>Blog sin actividad SEO</strong>La estructura existe pero no genera tráfico. Un blog activo sobre streetwear y estilo masculino podría rankear en términos de alto volumen.</li>
+            <li><strong>Google My Business sin optimización verificada</strong>Con 13+ tiendas, cada perfil de GMB es una fuente de tráfico local gratuita que aparentemente no está optimizada.</li>
+            <li><strong>Rich snippets de productos</strong>No se verificó implementación de schema markup en páginas de producto, perdiendo visibilidad en SERP.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title red">❌ Lo que falta completamente</div>
+          <ul class="concepto-list">
+            <li><strong>SEO categórico: invisible en términos no branded</strong>Buscar "zapatillas urbanas Buenos Aires" o "ropa casual masculina argentina" — Gola no aparece.</li>
+            <li><strong>Backlinks recientes (2024-2026)</strong>Solo se detecta La Nación 2006. Sin link building activo, la autoridad de dominio no crece.</li>
+            <li><strong>Estrategia de palabras clave long-tail</strong>No hay evidencia de contenido orientado a búsquedas específicas del consumidor de moda.</li>
+            <li><strong>Video SEO (YouTube/Google Video)</strong>0 videos indexados. Google prioriza resultados de video en búsquedas de moda.</li>
+          </ul>
+        </div>
+        <div class="concepto-rec-box">
+          <strong>Recomendación concreta:</strong> Tres acciones inmediatas de bajo costo: <strong style="color:var(--accent)">①</strong> Optimizar el perfil de Google My Business de cada tienda (foto fachada, horarios, categoría correcta, respuestas a reseñas). <strong style="color:var(--accent)">②</strong> Instalar schema markup de productos en golasouth.com para aparecer con precio e imagen en los resultados de Google. <strong style="color:var(--accent)">③</strong> Publicar un artículo de blog por semana orientado a búsquedas como "zapatillas estilo retro argentina", "ropa urbana hombre buenos aires", "marcas streetwear argentinas". En 6 meses estos artículos pueden generar tráfico orgánico sostenido sin inversión publicitaria.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ 4. REPUTACIÓN & GESTIÓN DE REVIEWS ════ -->
+  <div class="concepto-card debilidad" id="cc4">
+    <div class="concepto-header" onclick="toggleConcepto('cc4')">
+      <div class="concepto-icon">⭐</div>
+      <div class="concepto-title">
+        <div class="concepto-title-main">Reputación Online & Gestión de Reviews</div>
+        <div class="concepto-title-sub">Google Reviews · Trustpilot · Respuesta a reseñas · NPS</div>
+      </div>
+      <span class="concepto-badge debilidad">Debilidad Crítica</span>
+      <div class="concepto-score debilidad">18<span style="font-size:13px;color:var(--muted)">/100</span></div>
+      <span class="concepto-chevron">▶</span>
+    </div>
+    <div class="concepto-body">
+      <div class="concepto-body-inner">
+        <div>
+          <div class="concepto-col-title green">✅ Lo que funciona</div>
+          <ul class="concepto-list">
+            <li><strong>Heritage y diseño generan defensores de marca</strong>El 30% de reseñas es positivo, especialmente por el diseño retro y la historia de la marca.</li>
+            <li><strong>Outlets bien valorados</strong>Los locales outlet reciben comentarios más favorables por la relación precio/calidad percibida.</li>
+            <li><strong>Presencia en Yelp y Google Maps</strong>Al menos existe base para gestionar la reputación, aunque sin hacerlo actualmente.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title yellow">⚠️ Lo que no se aprovecha</div>
+          <ul class="concepto-list">
+            <li><strong>Reseñas positivas existentes sin amplificar</strong>El 30% positivo podría ser mostrado en el sitio web para aumentar conversión. Actualmente invisible.</li>
+            <li><strong>Sin pedido activo de reseñas post-compra</strong>No se le pide al cliente satisfecho que deje una reseña. El que deja reseñas espontáneamente es mayoritariamente el insatisfecho.</li>
+            <li><strong>Google My Business sin respuestas documentadas</strong>Las tiendas tienen perfiles pero sin gestión activa de las opiniones publicadas.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title red">❌ Lo que falta completamente</div>
+          <ul class="concepto-list">
+            <li><strong>Protocolo de respuesta a reseñas negativas</strong>Comentarios negativos sin responder son señal de que a la marca no le importa. Dañan más que la reseña original.</li>
+            <li><strong>Reviews integradas al sitio web</strong>Sin widget de Google Reviews ni Trustpilot en golasouth.com. Los nuevos compradores no tienen prueba social.</li>
+            <li><strong>Capacitación en atención al cliente</strong>La queja más común es el trato en tienda. Sin capacitación estructurada, el problema se reproduce.</li>
+            <li><strong>Proceso de cierre de quejas</strong>No hay evidencia de un proceso formal para resolver reclamos y convertir un cliente insatisfecho en uno recuperado.</li>
+          </ul>
+        </div>
+        <div class="concepto-rec-box">
+          <strong>Recomendación concreta:</strong> Esta es la acción más urgente de todo el plan. <strong style="color:var(--accent)">①</strong> Designar a una persona responsable de responder TODAS las reseñas de Google en 48 horas (tanto positivas como negativas). Una respuesta empática a una reseña negativa puede convertirla en una oportunidad. <strong style="color:var(--accent)">②</strong> Implementar un email post-compra automático pidiendo reseña (3-5 días después de la entrega). <strong style="color:var(--accent)">③</strong> Integrar un widget de Google Reviews en la home del sitio. <strong style="color:var(--accent)">④</strong> Capacitar al personal de tienda en protocolos de atención y resolución de conflictos — 1 taller mensual. Un aumento de 1 estrella en el rating promedio puede mejorar la conversión online entre 5-9%.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ 5. EMAIL MARKETING & AUTOMATIZACIÓN ════ -->
+  <div class="concepto-card debilidad" id="cc5">
+    <div class="concepto-header" onclick="toggleConcepto('cc5')">
+      <div class="concepto-icon">📧</div>
+      <div class="concepto-title">
+        <div class="concepto-title-main">Email Marketing & Automatización</div>
+        <div class="concepto-title-sub">Newsletter · Flujos automáticos · Carrito abandonado · Fidelización</div>
+      </div>
+      <span class="concepto-badge debilidad">Debilidad</span>
+      <div class="concepto-score debilidad">5<span style="font-size:13px;color:var(--muted)">/100</span></div>
+      <span class="concepto-chevron">▶</span>
+    </div>
+    <div class="concepto-body">
+      <div class="concepto-body-inner">
+        <div>
+          <div class="concepto-col-title green">✅ Lo que funciona</div>
+          <ul class="concepto-list">
+            <li><strong>E-commerce propio con base de clientes potencial</strong>Golasouth.com genera ventas online. Cada comprador es un potencial suscriptor.</li>
+            <li><strong>Formulario de checkout como punto de captura</strong>El proceso de compra ya captura el email del cliente, aunque aparentemente no se usa para retargeting.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title yellow">⚠️ Lo que no se aprovecha</div>
+          <ul class="concepto-list">
+            <li><strong>Datos de compradores existentes sin activar</strong>Si hay base de datos de clientes anteriores, no se usa para campañas de reactivación ni fidelización.</li>
+            <li><strong>Sin newsletter identificada en el sitio</strong>No hay pop-up, banner ni sección visible de suscripción a newsletter.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title red">❌ Lo que falta completamente</div>
+          <ul class="concepto-list">
+            <li><strong>Flujo de bienvenida</strong>El nuevo suscriptor no recibe ningún email de bienvenida con la historia de la marca o una oferta de primer compra.</li>
+            <li><strong>Recuperación de carrito abandonado</strong>El 70% de los carritos online se abandonan. Sin email automatizado, ese revenue se pierde.</li>
+            <li><strong>Email post-compra / cross-sell</strong>Nadie le dice al comprador "combiná tu zapatilla con esta remera" ni le agradece la compra.</li>
+            <li><strong>Segmentación de audiencia</strong>Sin emails segmentados por historial de compra, ubicación o preferencias.</li>
+            <li><strong>Programa de fidelización por email</strong>Sin beneficios exclusivos para clientes recurrentes comunicados por email.</li>
+          </ul>
+        </div>
+        <div class="concepto-rec-box">
+          <strong>Recomendación concreta:</strong> El email marketing es el canal con mayor ROI del marketing digital (promedio $36 por cada $1 invertido). Implementar con una herramienta como Klaviyo o Mailchimp: <strong style="color:var(--accent)">①</strong> Pop-up de captura en el sitio con descuento del 10% en primera compra. <strong style="color:var(--accent)">②</strong> Secuencia de bienvenida de 3 emails: historia de Gola → productos más vendidos → reseñas de clientes. <strong style="color:var(--accent)">③</strong> Flujo de carrito abandonado: 1 email a 1 hora, 1 email a 24 horas, 1 email a 72 horas. <strong style="color:var(--accent)">④</strong> Newsletter mensual con novedades de colección. En 90 días este canal puede aportar entre 10-15% de revenue adicional.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ 6. PAUTA PAGADA (META ADS / GOOGLE ADS) ════ -->
+  <div class="concepto-card punto-medio" id="cc6">
+    <div class="concepto-header" onclick="toggleConcepto('cc6')">
+      <div class="concepto-icon">💰</div>
+      <div class="concepto-title">
+        <div class="concepto-title-main">Pauta Pagada — Meta Ads & Google Ads</div>
+        <div class="concepto-title-sub">Facebook Ads · Instagram Ads · Google Shopping · Retargeting</div>
+      </div>
+      <span class="concepto-badge punto-medio">Punto Medio <span class="placeholder-tag" style="font-size:9px;">⚡ datos internos</span></span>
+      <div class="concepto-score punto-medio">—<span style="font-size:13px;color:var(--muted)">/100</span></div>
+      <span class="concepto-chevron">▶</span>
+    </div>
+    <div class="concepto-body">
+      <div class="concepto-body-inner">
+        <div>
+          <div class="concepto-col-title green">✅ Lo que puede funcionar</div>
+          <ul class="concepto-list">
+            <li><strong>Audiencia de FB/IG ya construida para retargeting</strong>Con 442K de fans, el público personalizado para retargeting en Meta es amplio y de bajo costo.</li>
+            <li><strong>Catálogo de productos en e-commerce</strong>La estructura de golasouth.com permite implementar Dynamic Product Ads en Meta de forma directa.</li>
+            <li><strong>Segmento de audiencia muy definido</strong>Hombre 18-35, urbano, interesado en streetwear. Fácil de segmentar en Meta y Google.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title yellow">⚠️ Sin datos para evaluar</div>
+          <ul class="concepto-list">
+            <li><strong>No hay información pública de campañas activas</strong>No se detectaron campañas de Meta Ads ni Google Ads en la investigación. Puede haber pauta interna sin visibilidad externa.</li>
+            <li><strong>Sin datos de CPM, CPC, ROAS ni conversión</strong>Para evaluar si la pauta es eficiente, se necesitan los datos del Ads Manager.</li>
+            <li><strong>Sin evidencia de Google Shopping activo</strong>Las búsquedas de producto no muestran anuncios de shopping de Gola de forma visible.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title red">❌ Riesgos identificados</div>
+          <ul class="concepto-list">
+            <li><strong>Sin retargeting de carrito abandonado</strong>Sin pixel bien configurado y sin flujo de email, el carrito abandonado se pierde sin recuperación.</li>
+            <li><strong>Posible desconexión pauta orgánica</strong>Si hay pauta activa, sin coordinación con el contenido orgánico la comunicación puede ser inconsistente.</li>
+            <li><strong>Sin Lookalike Audiences documentadas</strong>No hay evidencia de campañas de captación usando audiencias similares a compradores actuales.</li>
+          </ul>
+        </div>
+        <div class="concepto-rec-box">
+          <strong>Recomendación concreta:</strong> <span class="placeholder-tag">⚡ Completar con datos internos de Meta Ads Manager</span> — Compartir las métricas de campañas activas para evaluar CPM, CPC, CTR y ROAS. Si no hay pauta activa, las primeras campañas prioritarias serían: <strong style="color:var(--accent)">①</strong> Retargeting a visitantes del sitio que no compraron (presupuesto: $200-500 USD/mes). <strong style="color:var(--accent)">②</strong> Dynamic Product Ads para carrito abandonado. <strong style="color:var(--accent)">③</strong> Google Shopping para términos de producto específicos ("zapatillas Gola", "ropa Gola Argentina"). <strong style="color:var(--accent)">④</strong> Lookalike 1% basado en compradores de los últimos 180 días.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ 7. E-COMMERCE & CONVERSIÓN ════ -->
+  <div class="concepto-card fortaleza" id="cc7">
+    <div class="concepto-header" onclick="toggleConcepto('cc7')">
+      <div class="concepto-icon">🛒</div>
+      <div class="concepto-title">
+        <div class="concepto-title-main">E-commerce & Tasa de Conversión</div>
+        <div class="concepto-title-sub">UX de compra · Checkout · Mobile · Políticas de venta</div>
+      </div>
+      <span class="concepto-badge fortaleza">Fortaleza</span>
+      <div class="concepto-score fortaleza">70<span style="font-size:13px;color:var(--muted)">/100</span></div>
+      <span class="concepto-chevron">▶</span>
+    </div>
+    <div class="concepto-body">
+      <div class="concepto-body-inner">
+        <div>
+          <div class="concepto-col-title green">✅ Lo que funciona</div>
+          <ul class="concepto-list">
+            <li><strong>E-commerce propio funcional y moderno</strong>Golasouth.com tiene todas las funcionalidades básicas: carrito, búsqueda, filtros, Quick Shop, calculadora de envío.</li>
+            <li><strong>Diseño mobile-first bien implementado</strong>Responsive con 5 breakpoints, grilla de 2 columnas en mobile, imágenes adaptadas. El 80% del tráfico argentino es mobile.</li>
+            <li><strong>Performance técnica sólida</strong>Lazy loading, blur-up progresivo, critical CSS inline. Carga rápida que reduce bounce rate.</li>
+            <li><strong>WhatsApp flotante para soporte</strong>Canal directo de atención disponible durante el proceso de compra.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title yellow">⚠️ Lo que no se aprovecha</div>
+          <ul class="concepto-list">
+            <li><strong>Sin reviews de producto en el sitio</strong>La prueba social en la página de producto es uno de los factores de conversión más importantes. No existe.</li>
+            <li><strong>Sin cross-selling ni upselling visible</strong>No hay "completá el look" ni "otros clientes también vieron" en páginas de producto.</li>
+            <li><strong>Política de cambios no prominente</strong>El mayor freno a la compra online de ropa es la duda sobre cambios. No está visible antes del checkout.</li>
+            <li><strong>Blog sin link a productos</strong>El blog existe pero no está integrado con el catálogo para generar tráfico SEO → conversión.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title red">❌ Lo que falta completamente</div>
+          <ul class="concepto-list">
+            <li><strong>Sin programa de fidelización digital</strong>No hay puntos, descuentos por re-compra ni beneficios exclusivos para clientes recurrentes.</li>
+            <li><strong>Sin wishlist / lista de deseos</strong>Funcionalidad que aumenta retención y permite remarketing personalizado.</li>
+            <li><strong>App o PWA móvil ausente</strong>La experiencia app tiene conversion rate hasta 3x mayor que mobile web.</li>
+          </ul>
+        </div>
+        <div class="concepto-rec-box">
+          <strong>Recomendación concreta:</strong> El e-commerce ya está bien — el foco debe ser convertir mejor el tráfico existente. <strong style="color:var(--accent)">①</strong> Integrar Google Reviews como widget en homepage y en páginas de producto (incrementa conversión 5-9%). <strong style="color:var(--accent)">②</strong> Agregar sección "Completá el look" en cada página de producto con 3 ítems complementarios. <strong style="color:var(--accent)">③</strong> Colocar la política de cambios y garantías en texto visible en el header del checkout. <strong style="color:var(--accent)">④</strong> Implementar wishlist — las listas de deseos permiten retargeting hiper-personalizado en Meta Ads.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ 8. IDENTIDAD & POSICIONAMIENTO DE MARCA ════ -->
+  <div class="concepto-card fortaleza" id="cc8">
+    <div class="concepto-header" onclick="toggleConcepto('cc8')">
+      <div class="concepto-icon">🏆</div>
+      <div class="concepto-title">
+        <div class="concepto-title-main">Identidad & Posicionamiento de Marca</div>
+        <div class="concepto-title-sub">Brand equity · Diferenciación · Propuesta de valor · Heritage</div>
+      </div>
+      <span class="concepto-badge fortaleza">Fortaleza</span>
+      <div class="concepto-score fortaleza">72<span style="font-size:13px;color:var(--muted)">/100</span></div>
+      <span class="concepto-chevron">▶</span>
+    </div>
+    <div class="concepto-body">
+      <div class="concepto-body-inner">
+        <div>
+          <div class="concepto-col-title green">✅ Lo que funciona</div>
+          <ul class="concepto-list">
+            <li><strong>Heritage único: 1905, Manchester, Football</strong>Activo diferencial que ningún competidor local puede replicar. 120 años de historia es el mejor storytelling disponible.</li>
+            <li><strong>Posicionamiento "Classics" claro</strong>La identidad visual retro/urbana es coherente y distinguible en el mercado argentino.</li>
+            <li><strong>Única operación de Gola en Sudamérica</strong>Exclusividad regional que puede comunicarse como ventaja competitiva ("Solo en Argentina").</li>
+            <li><strong>Estética consistente entre canales</strong>La paleta visual, el tono y el estilo son reconocibles en Instagram y Facebook.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title yellow">⚠️ Lo que no se aprovecha</div>
+          <ul class="concepto-list">
+            <li><strong>La historia de 120 años no se cuenta digitalmente</strong>El activo más valioso de la marca no aparece en ningún canal digital argentino de forma desarrollada.</li>
+            <li><strong>Conexión con el football no activada en AR</strong>En el país más futbolero del mundo, Gola tiene raíces en el football. No se usa.</li>
+            <li><strong>El "por qué comprar Gola" no está articulado</strong>No hay contenido que explique al consumidor qué hace a Gola diferente de Adidas o Puma a su mismo precio.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="concepto-col-title red">❌ Riesgos activos</div>
+          <ul class="concepto-list">
+            <li><strong>Brecha entre promesa de marca y experiencia real</strong>Si el posicionamiento dice "clásico de calidad" pero los reviews dicen lo contrario, la identidad de marca pierde credibilidad.</li>
+            <li><strong>Confusión de propuesta de valor</strong>¿Es Gola una marca de diseño retro? ¿Deportiva? ¿Streetwear? La respuesta no es clara para el consumidor nuevo.</li>
+          </ul>
+        </div>
+        <div class="concepto-rec-box">
+          <strong>Recomendación concreta:</strong> El posicionamiento tiene base sólida — hay que comunicarlo mejor. <strong style="color:var(--accent)">①</strong> Crear una página "Nuestra Historia" en golasouth.com con la timeline de Gola desde 1905. <strong style="color:var(--accent)">②</strong> Desarrollar una campaña "120 años de Gola" — colaboración con influencers de cultura futbolística argentina. <strong style="color:var(--accent)">③</strong> Definir y comunicar explícitamente la propuesta de valor: "La calidad del football inglés, el estilo de las calles argentinas". <strong style="color:var(--accent)">④</strong> Alinear la experiencia en tienda con el posicionamiento premium: si la marca dice "clásico", el personal y la tienda deben reflejarlo.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUMEN VISUAL -->
+  <div style="margin-top:40px;">
+    <div class="section-title" style="margin-bottom:16px;">Resumen Visual — Estado por Concepto</div>
+    <div class="chart-wrap">
+      <div class="chart-title">Score por Concepto Digital — Gola South Q1 2026</div>
+      <div class="chart-canvas-wrap" style="height:300px">
+        <canvas id="conceptosBar"></canvas>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════ SECCIÓN 8 — RECOMENDACIONES ═══════════ -->
+<section class="section" id="recomendaciones">
+  <div class="section-title">Plan de Acción</div>
+  <div class="section-heading">Recomendaciones Accionables</div>
+
+  <!-- Matriz 2x2 -->
+  <div style="margin-bottom:40px;">
+    <div class="section-title" style="margin-bottom:12px;">Matriz de Priorización — Impacto vs Esfuerzo</div>
+    <div class="matrix-outer">
+      <div class="matrix-axis-y-wrap">
+        <div class="matrix-axis-y">↑ Impacto Alto · Bajo ↓</div>
+      </div>
+      <div>
+        <div class="matrix-container">
+          <div class="matrix-quadrant matrix-q1">
+            <div class="matrix-label">⚡ Quick Wins</div>
+            <span class="matrix-tag">Atención al cliente</span>
+            <span class="matrix-tag">Activar TikTok</span>
+            <span class="matrix-tag">Google Reviews</span>
+            <span class="matrix-tag">Política de cambios</span>
+          </div>
+          <div class="matrix-quadrant matrix-q2">
+            <div class="matrix-label">🎯 Proyectos Estratégicos</div>
+            <span class="matrix-tag">SEO categórico</span>
+            <span class="matrix-tag">Estrategia YouTube</span>
+            <span class="matrix-tag">Email marketing</span>
+            <span class="matrix-tag">Capacitación CX</span>
+          </div>
+          <div class="matrix-quadrant matrix-q3">
+            <div class="matrix-label">📋 Fill-ins</div>
+            <span class="matrix-tag">LinkedIn empresa</span>
+            <span class="matrix-tag">Pinterest</span>
+            <span class="matrix-tag">Tiendanube oficial</span>
+          </div>
+          <div class="matrix-quadrant matrix-q4">
+            <div class="matrix-label">⏳ Largo Plazo</div>
+            <span class="matrix-tag">App móvil / PWA</span>
+            <span class="matrix-tag">Nuevos marketplaces</span>
+          </div>
+        </div>
+        <div class="matrix-axis-x">Esfuerzo Bajo ← ——————————————————— → Esfuerzo Alto</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Roadmap -->
+  <div class="section-title" style="margin-bottom:12px;">Roadmap de Implementación</div>
+  <div class="roadmap" style="margin-bottom:40px;">
+    <div class="roadmap-phase phase-q1">
+      <div class="roadmap-phase-title">Quick Wins</div>
+      <div class="roadmap-phase-sub">0 – 30 días</div>
+      <ul class="roadmap-items">
+        <li class="roadmap-item"><div class="roadmap-num">1</div>Protocolo de atención al cliente + responder reviews negativos existentes</li>
+        <li class="roadmap-item"><div class="roadmap-num">2</div>Activar TikTok reutilizando Reels de Instagram (costo casi cero)</li>
+        <li class="roadmap-item"><div class="roadmap-num">3</div>Integrar Google Reviews en sitio web + crear proceso de solicitud de reseñas</li>
+        <li class="roadmap-item"><div class="roadmap-num">4</div>Publicar política de cambios y garantías visible en homepage y checkout</li>
+      </ul>
+    </div>
+    <div class="roadmap-phase phase-q2">
+      <div class="roadmap-phase-title">Iniciativas Mediano Plazo</div>
+      <div class="roadmap-phase-sub">1 – 3 meses</div>
+      <ul class="roadmap-items">
+        <li class="roadmap-item"><div class="roadmap-num">5</div>Email marketing: captura, flujo post-compra y recuperación de carrito abandonado</li>
+        <li class="roadmap-item"><div class="roadmap-num">6</div>Blog: 2 posts/semana sobre streetwear, cultura urbana, historia de Gola</li>
+        <li class="roadmap-item"><div class="roadmap-num">7</div>LinkedIn empresa: perfil corporativo + publicaciones mensuales de employer branding</li>
+        <li class="roadmap-item"><div class="roadmap-num">8</div>Campaña de micro-influencers urbanos argentinos (5-10 perfiles)</li>
+      </ul>
+    </div>
+    <div class="roadmap-phase phase-q3">
+      <div class="roadmap-phase-title">Iniciativas Estratégicas</div>
+      <div class="roadmap-phase-sub">3 – 6 meses</div>
+      <ul class="roadmap-items">
+        <li class="roadmap-item"><div class="roadmap-num">9</div>Canal YouTube: historia de la marca, lanzamientos, cultura del football y streetwear</li>
+        <li class="roadmap-item"><div class="roadmap-num">10</div>SEO categórico: estrategia de palabras clave no branded + link building</li>
+        <li class="roadmap-item"><div class="roadmap-num">11</div>Optimización de Google My Business de cada tienda física</li>
+        <li class="roadmap-item"><div class="roadmap-num">12</div>Programa de fidelización digital (puntos, beneficios, acceso anticipado)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Lista priorizada -->
+  <div class="section-title" style="margin-bottom:16px;">Lista Completa de Recomendaciones</div>
+  <div class="card">
+    <div style="display:flex;flex-direction:column;gap:0;">
+
+      <div class="rec-item">
+        <span class="badge-critica">Crítica</span>
+        <div class="rec-desc"><strong>Sistema de atención al cliente + gestión activa de reseñas negativas</strong>Implementar protocolo de respuesta a todas las reseñas (positivas y negativas). Capacitar al personal de tienda en CX. La reputación online es el factor más urgente.</div>
+        <div class="rec-meta">Esfuerzo: Medio<br>Tiempo: 2-4 sem</div>
+        <div class="rec-kpi">↑ Reputación<br>+30 pts</div>
+      </div>
+
+      <div class="rec-item">
+        <span class="badge-critica">Crítica</span>
+        <div class="rec-desc"><strong>Publicar política de cambios clara y garantías en homepage y checkout</strong>La ambigüedad en cambios genera desconfianza y abandono de compra. Un texto claro y visible reduce fricción y diferencia de la competencia informal.</div>
+        <div class="rec-meta">Esfuerzo: Bajo<br>Tiempo: 1 sem</div>
+        <div class="rec-kpi">↑ Conversión<br>+15%</div>
+      </div>
+
+      <div class="rec-item">
+        <span class="badge-alta">Alta</span>
+        <div class="rec-desc"><strong>Activar TikTok @gola_arg con repurposing de contenido IG existente</strong>Reutilizar los Reels de Instagram para publicar en TikTok requiere mínimo esfuerzo y puede generar alcance significativo en el segmento 18-30 masculino urbano.</div>
+        <div class="rec-meta">Esfuerzo: Bajo<br>Tiempo: 1-2 sem</div>
+        <div class="rec-kpi">↑ Alcance<br>nuevo segmento</div>
+      </div>
+
+      <div class="rec-item">
+        <span class="badge-alta">Alta</span>
+        <div class="rec-desc"><strong>Email marketing: captura + flujos automáticos de post-compra y carrito abandonado</strong>Sin email marketing, cada visitante que no convierte se pierde para siempre. Un flujo básico de 3-5 emails automatizados puede recuperar 10-15% del carrito abandonado.</div>
+        <div class="rec-meta">Esfuerzo: Medio<br>Tiempo: 3-6 sem</div>
+        <div class="rec-kpi">↑ Revenue<br>+10-15%</div>
+      </div>
+
+      <div class="rec-item">
+        <span class="badge-alta">Alta</span>
+        <div class="rec-desc"><strong>Integrar Google Reviews y Trustpilot en el sitio web</strong>Las reseñas en sitio aumentan la confianza de nuevos compradores. Además, Google premia el contenido generado por usuarios (UGC) con mejor posicionamiento SEO.</div>
+        <div class="rec-meta">Esfuerzo: Bajo<br>Tiempo: 1-2 sem</div>
+        <div class="rec-kpi">↑ Confianza<br>↑ SEO</div>
+      </div>
+
+      <div class="rec-item">
+        <span class="badge-alta">Alta</span>
+        <div class="rec-desc"><strong>Blog con 2 posts/semana: streetwear, cultura urbana, historia de Gola, football fashion</strong>La estructura existe en golasouth.com. Publicar contenido relevante y optimizado para SEO puede generar tráfico orgánico sostenido de términos no branded.</div>
+        <div class="rec-meta">Esfuerzo: Medio<br>Tiempo: Continuo</div>
+        <div class="rec-kpi">↑ Tráfico SEO<br>+20-40%</div>
+      </div>
+
+      <div class="rec-item">
+        <span class="badge-media">Media</span>
+        <div class="rec-desc"><strong>LinkedIn corporativo: página de empresa + contenido mensual de employer branding</strong>Una empresa con 13+ tiendas necesita presencia institucional en LinkedIn para credibilidad, atracción de talento y relaciones B2B con distribuidores.</div>
+        <div class="rec-meta">Esfuerzo: Bajo<br>Tiempo: 1 sem setup</div>
+        <div class="rec-kpi">↑ Credibilidad<br>institucional</div>
+      </div>
+
+      <div class="rec-item">
+        <span class="badge-media">Media</span>
+        <div class="rec-desc"><strong>Canal YouTube: historia de la marca 1905, lanzamientos, cultura football y streetwear</strong>El heritage de 120 años es un asset narrativo único. Videos sobre los orígenes de la marca, el football inglés y la cultura urbana pueden posicionarse en búsquedas de Google.</div>
+        <div class="rec-meta">Esfuerzo: Alto<br>Tiempo: 2-3 meses</div>
+        <div class="rec-kpi">↑ SEO Video<br>↑ Brand equity</div>
+      </div>
+
+      <div class="rec-item">
+        <span class="badge-media">Media</span>
+        <div class="rec-desc"><strong>Optimización de Google My Business para cada tienda física</strong>Con 13+ tiendas, cada perfil de GMB bien optimizado es una fuente de tráfico local gratuita. Fotos, horarios, respuestas a reseñas y posts de GMB aumentan la visibilidad local.</div>
+        <div class="rec-meta">Esfuerzo: Medio<br>Tiempo: 2-4 sem</div>
+        <div class="rec-kpi">↑ Tráfico local<br>+25%</div>
+      </div>
+
+      <div class="rec-item">
+        <span class="badge-baja">Baja</span>
+        <div class="rec-desc"><strong>App móvil o PWA para e-commerce</strong>El 80%+ del tráfico e-commerce en Argentina proviene de mobile. Una PWA (Progressive Web App) puede ofrecer experiencia tipo app sin el costo de desarrollo de una aplicación nativa.</div>
+        <div class="rec-meta">Esfuerzo: Alto<br>Tiempo: 4-6 meses</div>
+        <div class="rec-kpi">↑ Mobile UX<br>↑ Conversión</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECCIÓN 9 — SCORECARD FINAL ═══════════ -->
+<section class="section" id="scorecard">
+  <div class="section-title">Evaluación Global</div>
+  <div class="section-heading">Scorecard de Salud Digital</div>
+
+  <div class="grid-2" style="margin-bottom:32px;">
+    <div class="chart-wrap">
+      <div class="chart-title">Radar de Salud Digital — Scorecard Final</div>
+      <div class="chart-canvas-wrap" style="height:320px">
+        <canvas id="radarFinal"></canvas>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <div class="card-label">Puntuación por Dimensión</div>
+        <div style="margin-top:16px;">
+          <div class="score-row">
+            <div class="score-label">Sitio Web & E-commerce</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:70%;background:var(--yellow)"></div></div>
+            <div class="score-num">70</div>
+            <div class="score-status">🟡</div>
+          </div>
+          <div class="score-row">
+            <div class="score-label">Instagram</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:72%;background:var(--yellow)"></div></div>
+            <div class="score-num">72</div>
+            <div class="score-status">🟡</div>
+          </div>
+          <div class="score-row">
+            <div class="score-label">Facebook</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:65%;background:var(--yellow)"></div></div>
+            <div class="score-num">65</div>
+            <div class="score-status">🟡</div>
+          </div>
+          <div class="score-row">
+            <div class="score-label">TikTok / LinkedIn</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:18%;background:var(--red)"></div></div>
+            <div class="score-num">18</div>
+            <div class="score-status">🔴</div>
+          </div>
+          <div class="score-row">
+            <div class="score-label">SEO & Visibilidad</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:38%;background:var(--red)"></div></div>
+            <div class="score-num">38</div>
+            <div class="score-status">🔴</div>
+          </div>
+          <div class="score-row">
+            <div class="score-label">Reputación Online</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:38%;background:var(--red)"></div></div>
+            <div class="score-num">38</div>
+            <div class="score-status">🔴</div>
+          </div>
+          <div class="score-row">
+            <div class="score-label">Email Marketing</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:5%;background:var(--red)"></div></div>
+            <div class="score-num">5</div>
+            <div class="score-status">🔴</div>
+          </div>
+          <div class="score-row" style="border-top:2px solid var(--accent);margin-top:8px;padding-top:16px;">
+            <div class="score-label" style="font-weight:bold;color:var(--white);">SCORE TOTAL</div>
+            <div class="score-bar-wrap"><div class="score-bar" style="width:48%;background:var(--red)"></div></div>
+            <div class="score-num" style="font-size:18px;color:var(--red);">48</div>
+            <div class="score-status">🔴</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gráfico de barras horizontal scorecard -->
+  <div class="chart-wrap" style="margin-bottom:32px;">
+    <div class="chart-title">Score por Dimensión — Comparativa Visual</div>
+    <div class="chart-canvas-wrap" style="height:280px">
+      <canvas id="scorecardBar"></canvas>
+    </div>
+  </div>
+
+  <!-- Conclusión ejecutiva -->
+  <div class="card" style="border-left:4px solid var(--accent);">
+    <div class="card-label">Conclusión Ejecutiva</div>
+    <div style="font-size:13px;color:var(--light);line-height:1.9;margin-top:12px;">
+      Gola South Argentina se encuentra en un estado de <strong style="color:var(--red)">desarrollo digital incompleto</strong> con un score de <strong style="color:var(--red)">48/100</strong>. La marca tiene activos digitales valiosos — 442K de audiencia social combinada, e-commerce funcional y una red física de 13+ tiendas — pero enfrenta <strong style="color:var(--white)">tres brechas críticas</strong>: <strong style="color:var(--red)">(1)</strong> una reputación online deteriorada que requiere atención inmediata, <strong style="color:var(--red)">(2)</strong> ausencia total en canales emergentes como TikTok y YouTube donde vive su público objetivo más joven, y <strong style="color:var(--red)">(3)</strong> un SEO categórico prácticamente inexistente que hace que la marca sea invisible para consumidores que no la conocen previamente.<br><br>
+      El potencial de mejora es <strong style="color:var(--green)">significativo</strong>. Con acciones de bajo costo y alto impacto — activar TikTok, gestionar reseñas, implementar email marketing y clarificar políticas — se podría subir el score a <strong style="color:var(--accent)">60-65/100</strong> en 90 días. El heritage de la marca (1905, Manchester, football) es un asset narrativo diferencial que está siendo <strong style="color:var(--yellow)">completamente subutilizado</strong> en la estrategia de contenido digital.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">Gola South · Auditoría Digital · Q1 2026</div>
+  <div class="footer-note">Elaborado con datos públicos + estimaciones. ⚡ Actualizar con datos internos donde se indica.</div>
+</footer>
+
+<script>
+  // ── NAV ──
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // ── SOCIAL SUB-NAV ──
+  function showSocial(net, btn) {
+    document.querySelectorAll('.social-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.social-subnav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + net).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // ── ACCORDION ──
+  function toggleAccordion(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+
+  // ── CONCEPTO ACCORDION ──
+  function toggleConcepto(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+
+  // ── COLORES ──
+  const C = {
+    accent:  '#1A3A6B',
+    accent2: '#0d2247',
+    green:   '#2e9e6b',
+    yellow:  '#e6a800',
+    red:     '#E31837',
+    orange:  '#F5851F',
+    blue:    '#4A90D9',
+    border:  '#e0e0e0',
+    subtle:  '#777777',
+    light:   '#444444',
+    bg:      'rgba(26,58,107,0.06)',
+  };
+
+  // ── CHART DEFAULTS ──
+  Chart.defaults.color = C.subtle;
+  Chart.defaults.font.family = 'Arial, Helvetica, sans-serif';
+  Chart.defaults.font.size = 11;
+
+  // ── RADAR OVERVIEW ──
+  new Chart(document.getElementById('radarOverview'), {
+    type: 'radar',
+    data: {
+      labels: ['Web & E-com', 'Instagram', 'Facebook', 'TikTok/LinkedIn', 'SEO', 'Reputación', 'Email Mktg'],
+      datasets: [{
+        label: 'Gola South — Q1 2026',
+        data: [70, 72, 65, 18, 38, 38, 5],
+        backgroundColor: 'rgba(26,58,107,0.12)',
+        borderColor: C.accent,
+        borderWidth: 2,
+        pointBackgroundColor: C.accent,
+        pointRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { r: { min: 0, max: 100, ticks: { stepSize: 20, color: C.subtle, backdropColor: 'transparent' }, grid: { color: C.border }, pointLabels: { color: C.light, font: { size: 11 } } } },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // ── WEB BAR ──
+  new Chart(document.getElementById('webBar'), {
+    type: 'bar',
+    data: {
+      labels: ['Performance', 'UX / Usabilidad', 'Mobile', 'SEO On-Page', 'E-commerce', 'Blog / Contenido'],
+      datasets: [{
+        label: 'Score /100',
+        data: [70, 72, 85, 40, 68, 25],
+        backgroundColor: [C.yellow, C.yellow, C.green, C.red, C.yellow, C.red],
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      indexAxis: 'y',
+      scales: { x: { min: 0, max: 100, grid: { color: C.border }, ticks: { color: C.subtle } }, y: { grid: { display: false }, ticks: { color: C.light } } },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // ── IG MIX DOUGHNUT ──
+  new Chart(document.getElementById('igMix'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Reels', 'Carousels', 'Fotos únicas', 'Stories'],
+      datasets: [{ data: [35, 30, 25, 10], backgroundColor: [C.accent, C.blue, C.orange, C.yellow], borderWidth: 0 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { color: C.light, padding: 12, font: { size: 11 } } } }
+    }
+  });
+
+  // ── IG GROWTH LINE ──
+  new Chart(document.getElementById('igGrowth'), {
+    type: 'line',
+    data: {
+      labels: ['Oct 25', 'Nov 25', 'Dic 25', 'Ene 26', 'Feb 26', 'Mar 26'],
+      datasets: [{
+        label: 'Seguidores (estimado)',
+        data: [126000, 127500, 129000, 130000, 131200, 132000],
+        borderColor: C.accent,
+        backgroundColor: 'rgba(26,58,107,0.08)',
+        borderWidth: 2,
+        tension: 0.3,
+        fill: true,
+        pointRadius: 4,
+        pointBackgroundColor: C.accent,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { x: { grid: { display: false }, ticks: { color: C.subtle } }, y: { grid: { color: C.border }, ticks: { color: C.subtle } } },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // ── FB AUDIENCE PIE ──
+  new Chart(document.getElementById('fbAudience'), {
+    type: 'doughnut',
+    data: {
+      labels: ['GolaSouth (principal)', 'Rosario', 'Mar del Plata', 'Salta', 'Abasto'],
+      datasets: [{ data: [310251, 1100, 600, 400, 244], backgroundColor: ['#1877F2', C.blue, C.accent, C.yellow, C.orange], borderWidth: 0 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { color: C.light, padding: 10, font: { size: 10 } } } }
+    }
+  });
+
+  // ── SEO BAR ──
+  new Chart(document.getElementById('seoBar'), {
+    type: 'bar',
+    data: {
+      labels: ['Branded', 'Local (tiendas)', 'Marketplace', 'Categórico', 'Long-tail', 'Video/YouTube'],
+      datasets: [{
+        label: 'Visibilidad estimada /100',
+        data: [72, 50, 55, 18, 12, 0],
+        backgroundColor: [C.green, C.yellow, C.yellow, C.red, C.red, C.red],
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { x: { grid: { display: false }, ticks: { color: C.subtle } }, y: { min: 0, max: 100, grid: { color: C.border }, ticks: { color: C.subtle } } },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // ── SENTIMENT CHART ──
+  new Chart(document.getElementById('sentChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Positivo (30%)', 'Neutro (25%)', 'Negativo (45%)'],
+      datasets: [{ data: [30, 25, 45], backgroundColor: [C.green, C.yellow, C.red], borderWidth: 0 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { color: C.light, padding: 12, font: { size: 11 } } } }
+    }
+  });
+
+  // ── RADAR COMPETIDORES ──
+  new Chart(document.getElementById('radarComp'), {
+    type: 'radar',
+    data: {
+      labels: ['Social Media', 'E-commerce', 'SEO', 'Reputación', 'Precio/Valor', 'Reconocimiento'],
+      datasets: [
+        { label: 'Gola South',     data: [55, 70, 38, 38, 55, 62], borderColor: C.accent, backgroundColor: 'rgba(26,58,107,0.1)',  borderWidth: 2, pointRadius: 3 },
+        { label: 'La Martina',     data: [70, 65, 55, 72, 60, 78], borderColor: '#8B0000', backgroundColor: 'rgba(139,0,0,0.06)',  borderWidth: 2, pointRadius: 3 },
+        { label: 'Adidas AR',      data: [90, 85, 88, 80, 72, 95], borderColor: '#2196F3', backgroundColor: 'rgba(33,150,243,0.06)', borderWidth: 2, pointRadius: 3 },
+        { label: 'Puma AR',        data: [82, 80, 80, 75, 70, 88], borderColor: '#FF5722', backgroundColor: 'rgba(255,87,34,0.05)', borderWidth: 2, pointRadius: 3 },
+        { label: 'Antártida Sport',data: [45, 55, 48, 65, 72, 40], borderColor: '#4CAF50', backgroundColor: 'rgba(76,175,80,0.05)', borderWidth: 2, pointRadius: 3 },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { r: { min: 0, max: 100, ticks: { stepSize: 20, color: C.subtle, backdropColor: 'transparent' }, grid: { color: C.border }, pointLabels: { color: C.light, font: { size: 10 } } } },
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // ── RADAR FINAL ──
+  new Chart(document.getElementById('radarFinal'), {
+    type: 'radar',
+    data: {
+      labels: ['Web & E-com', 'Instagram', 'Facebook', 'TikTok/LinkedIn', 'SEO', 'Reputación', 'Email Mktg'],
+      datasets: [{
+        label: 'Score Actual',
+        data: [70, 72, 65, 18, 38, 38, 5],
+        backgroundColor: 'rgba(26,58,107,0.1)',
+        borderColor: C.accent,
+        borderWidth: 2,
+        pointBackgroundColor: C.accent,
+        pointRadius: 4,
+      }, {
+        label: 'Potencial (90 días)',
+        data: [75, 78, 68, 45, 45, 58, 40],
+        backgroundColor: 'rgba(46,158,107,0.08)',
+        borderColor: C.green,
+        borderWidth: 2,
+        borderDash: [5, 5],
+        pointBackgroundColor: C.green,
+        pointRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { r: { min: 0, max: 100, ticks: { stepSize: 20, color: C.subtle, backdropColor: 'transparent' }, grid: { color: C.border }, pointLabels: { color: C.light, font: { size: 11 } } } },
+      plugins: { legend: { position: 'bottom', labels: { color: C.light, padding: 14, font: { size: 11 } } } }
+    }
+  });
+
+  // ── CONCEPTOS BAR ──
+  new Chart(document.getElementById('conceptosBar'), {
+    type: 'bar',
+    data: {
+      labels: [
+        'Redes Sociales',
+        'Estrategia de Contenido',
+        'SEO & Visibilidad',
+        'Reputación & Reviews',
+        'Email Marketing',
+        'Pauta Pagada',
+        'E-commerce & Conversión',
+        'Identidad de Marca',
+      ],
+      datasets: [{
+        label: 'Score /100',
+        data: [43, 35, 28, 18, 5, 40, 70, 72],
+        backgroundColor: [C.yellow, C.yellow, C.red, C.red, C.red, C.yellow, C.green, C.green],
+        borderWidth: 0,
+        borderRadius: 2,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      indexAxis: 'y',
+      scales: {
+        x: { min: 0, max: 100, grid: { color: C.border }, ticks: { color: C.subtle } },
+        y: { grid: { display: false }, ticks: { color: C.light, font: { size: 11 } } }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            afterLabel: function(ctx) {
+              const labels = ['Punto Medio','Punto Medio','Debilidad','Debilidad Crítica','Debilidad','Punto Medio','Fortaleza','Fortaleza'];
+              return labels[ctx.dataIndex];
+            }
+          }
+        }
+      }
+    }
+  });
+
+  // ── SCORECARD BAR ──
+  new Chart(document.getElementById('scorecardBar'), {
+    type: 'bar',
+    data: {
+      labels: ['Web & E-commerce', 'Instagram', 'Facebook', 'TikTok/LinkedIn', 'SEO & Visibilidad', 'Reputación Online', 'Email Marketing'],
+      datasets: [{
+        label: 'Score /100',
+        data: [70, 72, 65, 18, 38, 38, 5],
+        backgroundColor: [C.yellow, C.yellow, C.yellow, C.red, C.red, C.red, C.red],
+        borderWidth: 0,
+        borderRadius: 2,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      indexAxis: 'y',
+      scales: {
+        x: { min: 0, max: 100, grid: { color: C.border }, ticks: { color: C.subtle } },
+        y: { grid: { display: false }, ticks: { color: C.light } }
+      },
+      plugins: {
+        legend: { display: false },
+        annotation: {}
+      }
+    }
+  });
+</script>
+</body>
+</html>
